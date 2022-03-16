@@ -1,0 +1,52 @@
+aside{
+    width: 200px;
+    background-color: var(--emrald-light);
+    padding: 1rem 0;
+}
+.sidebar-heading{
+    padding: 0 1rem;
+}
+.filters{
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+}
+.category-div,.rating-div{
+    display: flex;
+    flex-direction: column;
+}
+input[type='checkbox'],input[type='radio']{
+    border: 0px;
+    width: 1.2em; 
+    height: 1em;
+}
+.accent{
+    accent-color: var(--secondary);
+}
+.--slider{
+    outline: none;
+    margin: 0.5rem 0;
+    width: 100%;
+}
+/* section */
+section{
+    width: 100%;
+}
+.sort-div{
+    padding: 1rem;
+}
+select{
+    padding: 4px;
+    outline: none;
+}
+/* price range */
+datalist {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 0px;
+  }
+  
+  .slider-container {
+    flex-direction: column;
+    height: auto;
+  }

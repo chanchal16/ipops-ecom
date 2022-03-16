@@ -1,0 +1,21 @@
+.footer{
+    background-color: var(--emrald-dark);
+    padding: 0.5rem;
+}
+.socials,.footer-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    /* margin: 1rem; */
+}
+.footer-header span{
+    color: var(--secondary);
+    font-family: var(--font);
+}
+.links{
+    margin: 0.5rem 1rem;
+}
+.links:hover{
+    color: var(--secondary);
+}

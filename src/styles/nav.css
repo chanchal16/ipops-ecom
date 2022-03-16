@@ -1,0 +1,29 @@
+.navbars{
+    background-color: var(--secondary);
+}
+.brand-name{
+    font-family: var(--font);
+}
+.brand-name:hover,
+.list-items a:hover{
+    color: var(--emrald-dark);
+}
+.menu-icon{
+    padding: 0;
+}
+.list-items{
+    vertical-align: middle;
+    margin:0 0.8rem;
+}
+/* ***nav icons */
+.badge-icon{
+    margin: 0;
+}
+.dotbadge{
+    bottom: 1rem;
+    left: 1.2rem;
+    background-color: var(--danger);
+}
+.numbadge{
+    bottom: 0.8rem;
+}
