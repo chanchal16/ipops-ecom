@@ -8,23 +8,83 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    brandname: "Vincent Chase",
+    description:'Blue Transparent Full Rim Round Eyeglasses',
+    categoryName: "eye-glasses",
+    price: "799",
+    img:'https://cdn.eyemyeye.com/shared/images/products/E20C4254/E20C4254-1-hd.jpg',
+    rating:2.8
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    brandname: "Vistazo",
+    description:'Black Full Rim Round Eyeglasses',
+    categoryName: "eye-glasses",
+    price: "999",
+    img:'https://cdn.eyemyeye.com/shared/images/products/E20A3743/E20A3743-1-hd.jpg',
+    rating:2.7
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    brandname: "Vistazo",
+    description:'Blue Tinted Aviator Sunglasses',
+    categoryName: "sun-glasses",
+    price: "1299",
+    img:'https://cdn.eyemyeye.com/shared/images/products/S20A2407/S20A2407-1-hd.jpg',
+    rating:4.2
   },
+  {
+    _id:uuid(),
+    brandname:'Nerdlane',
+    description:'Gunmetal Full Rim Aviator Computer glasses',
+    categoryName:'computer-glasses',
+    price:'899',
+    img:'https://cdn.eyemyeye.com/shared/images/products/E20A4096/E20A4096-1-hd.jpg',
+    rating:4.0
+  },
+    {
+    _id:uuid(),
+    brandname:'Vincent Chase',
+    description:'Smoke Tinted Cateye Sunglasses',
+    type:'sun-glasses',
+    price:1450,
+    img:'https://cdn.eyemyeye.com/shared/images/products/S66A1714/S66A1714-1-hd.jpg',
+    rating:3.8
+  },
+  {
+    _id:uuid(),
+    brandname:'Nerdlane',
+    description:'Black metal Full Rim Aviator Computer glasses',
+    type:'computer-glasses',
+    price:2600,
+    img:'https://cdn.eyemyeye.com/shared/images/products/E12A3261/E12A3261-1-hd.jpg',
+    rating:4.3
+  },
+  {
+    _id:uuid(),
+    brandname:'Vistazo',
+    description:'Glossy Multicolor Full Rim Cat Eye Eyeglasses',
+    type:'eye-glasses',
+    price:1200,
+    img:'https://cdn.eyemyeye.com/shared/images/products/E18A3477/E18A3477-1-hd.jpg',
+    rating:3.9
+  },
+  {
+    _id:uuid(),
+    brandname:'Vincent Chase',
+    description:'Silver Full Frame Round Computer Glasses ',
+    type:'computer-glasses',
+    price:1499,
+    img:'https://cdn.eyemyeye.com/shared/images/products/E10B3446/E10B3446-1-hd.jpg',
+    rating:4.1
+  },
+  {
+    _id:uuid(),
+    brandname:'Vincent Chase',
+    description:'Multicolor Mirror Clubmaster Sunglasses',
+    type:'sun-glasses',
+    price:1800,
+    img:'https://cdn.eyemyeye.com/shared/images/products/S66B2142/S66B2142-1-hd.jpg',
+    rating:4.2
+  }
 ];
