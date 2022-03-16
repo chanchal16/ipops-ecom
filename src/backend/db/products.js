@@ -46,7 +46,7 @@ export const products = [
     _id:uuid(),
     brandname:'Vincent Chase',
     description:'Smoke Tinted Cateye Sunglasses',
-    type:'sun-glasses',
+    categoryName:'sun-glasses',
     price:1450,
     img:'https://cdn.eyemyeye.com/shared/images/products/S66A1714/S66A1714-1-hd.jpg',
     rating:3.8
@@ -55,7 +55,7 @@ export const products = [
     _id:uuid(),
     brandname:'Nerdlane',
     description:'Black metal Full Rim Aviator Computer glasses',
-    type:'computer-glasses',
+    categoryName:'computer-glasses',
     price:2600,
     img:'https://cdn.eyemyeye.com/shared/images/products/E12A3261/E12A3261-1-hd.jpg',
     rating:4.3
@@ -64,7 +64,7 @@ export const products = [
     _id:uuid(),
     brandname:'Vistazo',
     description:'Glossy Multicolor Full Rim Cat Eye Eyeglasses',
-    type:'eye-glasses',
+    categoryName:'eye-glasses',
     price:1200,
     img:'https://cdn.eyemyeye.com/shared/images/products/E18A3477/E18A3477-1-hd.jpg',
     rating:3.9
@@ -73,7 +73,7 @@ export const products = [
     _id:uuid(),
     brandname:'Vincent Chase',
     description:'Silver Full Frame Round Computer Glasses ',
-    type:'computer-glasses',
+    categoryName:'computer-glasses',
     price:1499,
     img:'https://cdn.eyemyeye.com/shared/images/products/E10B3446/E10B3446-1-hd.jpg',
     rating:4.1
@@ -82,7 +82,7 @@ export const products = [
     _id:uuid(),
     brandname:'Vincent Chase',
     description:'Multicolor Mirror Clubmaster Sunglasses',
-    type:'sun-glasses',
+    categoryName:'sun-glasses',
     price:1800,
     img:'https://cdn.eyemyeye.com/shared/images/products/S66B2142/S66B2142-1-hd.jpg',
     rating:4.2
