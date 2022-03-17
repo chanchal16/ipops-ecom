@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
 import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSortedProducts } from '../Utils/filterUtils';
+import ProductCard from '../components/ProductCard';
 
 export default function Products() {
     const {state,dispatch} = useFilter()
@@ -12,13 +13,13 @@ export default function Products() {
 
     useEffect(() => {
         (async () => {
-            // try {
+            try {
                await axios.get("/api/products")
                .then((res) => {
                     dispatch({type:'GET_ALL_PRODUCTS',payload:res.data.products})
                 console.log('res',res.data);
                 })
-                .catch((err) => console.log(err));
+            }catch(err) { console.log(err)};
             
           })();
     }, [])
@@ -54,34 +55,7 @@ export default function Products() {
             <div className='product-list'>
             {
              filteredProducts.length>0 && filteredProducts?.map(product=>(
-                <div class="card" key={product._id}>
-                    <div class="card-media">
-                        <img class="vc-image" 
-                        src={product.img} 
-                        alt="specs" loading="lazy" />
-                        <span class="gray close ">
-                            <i class="far fa-heart fa-lg"></i>
-                        </span>
-                        {/* <span class="text-badge">new</span> */}
-                    </div>
-                    <div class="card-content">
-                        <div class="content-title">
-                            <h4>{product.brandname}</h4>
-                            <div class="badge-rating">
-                                <span class="text-xs">{product.rating}</span>
-                                <span class="badge-star"><i class="fas fa-star fa-xs"></i></span>
-                            </div>  
-                        </div>
-                        <div class="desc">
-                            <p class="desc-title">{product.categoryName}</p>
-                            <p><strong>₹{product.price} </strong> <span class="strike-text gray">Rs.999
-                                </span> <span class="secondary">20% off</span></p>
-                        </div>
-                        <div class="action-btns">
-                            <button class="btn"><i class="fas fa-shopping-cart"></i> Add to cart</button>
-                        </div>
-                    </div>
-                </div>
+                <ProductCard product={product} key={product._id} />
             ))  
             }
             </div>
