@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFilter } from '../contexts/filterContext'
 
-export default function Sidebar() {
+function Sidebar() {
     const {state,dispatch} = useFilter()
     const{category} = state
     const{all,eyeglasses,computerglasses,sunglasses} = category
@@ -76,3 +76,4 @@ export default function Sidebar() {
     </div>
   )
 }
+export {Sidebar}

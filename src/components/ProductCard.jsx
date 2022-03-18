@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ProductCard({product}) {
+function ProductCard({product}) {
   return (
     <div>
         <div class="card" key={product._id}>
@@ -34,3 +34,4 @@ export default function ProductCard({product}) {
     </div>
   )
 }
+export {ProductCard}

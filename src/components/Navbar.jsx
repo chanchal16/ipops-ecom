@@ -1,7 +1,7 @@
 import React from 'react'
 import specs from '../assets/spectacle-lenses.svg'
 
-export default function Navbar() {
+function Navbar() {
   return (
     <div>
         <header className="navbars">
@@ -37,3 +37,4 @@ export default function Navbar() {
     </div>
   )
 }
+export {Navbar}
