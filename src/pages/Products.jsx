@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from 'react';
-import Sidebar from '../components/Sidebar';
+import {Sidebar, ProductCard} from '../components/components';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
 import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSortedProducts } from '../Utils/filterUtils';
-import ProductCard from '../components/ProductCard';
+// import ProductCard from '../components/ProductCard';
 
 export default function Products() {
     const {state,dispatch} = useFilter()
