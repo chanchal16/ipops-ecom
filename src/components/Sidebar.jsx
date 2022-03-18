@@ -3,11 +3,15 @@ import { useFilter } from '../contexts/filterContext'
 
 export default function Sidebar() {
     const {state,dispatch} = useFilter()
+    const{category} = state
+    const{all,eyeglasses,computerglasses,sunglasses} = category
+    
   return (
     <div>
          <aside>
             <div className="sidebar">
                 <span className="h6 sidebar-heading">Filters</span>
+                <button className='btn btn-primary' onClick={(e)=>dispatch({type:'CLEAR'})}>clear</button>
                 <div className="filters">
                     <p className="text-md">Price</p>
                     <div class="slider-container">
@@ -31,24 +35,21 @@ export default function Sidebar() {
                         
                         />
                     </div>
-                    {/*<input type="range" min="800" max="2000" value={state.price} 
-                    className="--slider accent" id="myRange" 
-                    onChange={(e) => dispatch({ type: "PRICE", payload: e.target.value })} />*/}
                 </div>
                 {/* ---categories-- */}
                 <div className="filters">
                     <p className="text-md">Category</p>
                     <div className='category-div'>
-                    <label className="text-sm accent" for="checkbox">
-                        <input type="checkbox" name="category" /> All </label> 
+                    {/* <label className="text-sm accent" for="checkbox">
+                        <input type="checkbox" name="all" value='All'  onClick={(e)=>dispatch({type:'All', payload:e.target.checked})}/> All </label>  */}
                     <label className="text-sm accent">
-                        <input type="checkbox" name="category" value='eye-glasses' onClick={(e)=>dispatch({type:'EYEGLASSES'})}/>
+                        <input type="checkbox" name="eyeglasses" checked={eyeglasses} value='eyeglasses' onClick={(e)=>dispatch({type:'EYEGLASSES'})}/>
                          Eye-glasses </label> 
                     <label className="text-sm accent">
-                        <input type="checkbox" name="category" value='computer-glasses' onClick={(e)=>dispatch({type:'COMPUTERGLASSES'})} />
+                        <input type="checkbox" name="computerglasses" checked={computerglasses} value='computerglasses' onClick={(e)=>dispatch({type:'COMPUTERGLASSES'})} />
                          Computer-glasses </label>
                     <label className="text-sm accent">
-                        <input type="checkbox" name="category" value='sun-glasses' onClick={(e)=>dispatch({type:'SUNGLASSES'})} />
+                        <input type="checkbox" name="sunglasses" checked={sunglasses} value='sunglasses' onClick={(e)=>dispatch({type:'SUNGLASSES'})} />
                          Sunglasses </label>
                     </div>
                 </div>

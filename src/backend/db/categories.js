@@ -8,19 +8,19 @@ import { v4 as uuid } from "uuid";
 export const categories = [
   {
     _id: uuid(),
-    categoryName: "eye-glasses",
+    categoryName: "eyeglasses",
     description:
       "Eyeglasses are used to correct any vision problems,",
   },
   {
     _id: uuid(),
-    categoryName: "computer-glasses",
+    categoryName: "computerglasses",
     description:
       "Computer glasses are prescription glasses that are designed to wear when doing computer work. ",
   },
   {
     _id: uuid(),
-    categoryName: "sun-glasses",
+    categoryName: "sunglasses",
     description:
       "Sunglasses are tinted lenses that protect the eyes from the glare of sunlight",
   },
