@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
+@import './styles/auth.css';
 @import './styles/nav.css';
 @import './styles/sidebar.css';
 @import './styles/products.css';
 @import './styles/footer.css';
 @import './styles/variables.css';
+
 
 *,
 *:before,
