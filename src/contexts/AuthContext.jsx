@@ -10,7 +10,7 @@ const AuthContext = createContext();
   const localUser = JSON.parse(localStorage.getItem('user'));
 
   const [token, setToken] = useState(loginToken?.token);
-  const [user, setUser] = useState([localUser]); 
+  const [user, setUser] = useState(localUser); 
   const[signupToken,setSignupToken] = useState(registerToken?.signupToken)
 
   const LoginHandler = async (email, password) => {
@@ -27,7 +27,7 @@ const AuthContext = createContext();
           );
           setToken(encodedToken);
           localStorage.setItem('user',JSON.stringify([...user,foundUser]))
-          setUser(...foundUser);
+          setUser(foundUser);
         }
       } catch (error) {
         console.log("Error in login user", error);
