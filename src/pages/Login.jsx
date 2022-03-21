@@ -8,20 +8,20 @@ function Login() {
     email: "",
     password: "",
   });
-  const {LoginHandler } = useAuth();
+  const {LoginHandler,token } = useAuth();
  
   const handleSubmit = (e)=>{
     e.preventDefault()
     LoginHandler(loginForm.email, loginForm.password);
+    
   }
-
+  console.log('token',token)
   const HandleLogin=() =>{
-    setLoginForm((form) => ({
-      ...form,
-      email: "testing@test.com",
-      password: "test123",
-    }));
-    navigate('/products')
+    setLoginForm({
+      email: "adarshbalika@gmail.com",
+      password: "adarshbalika",
+    });
+    // navigate('/products')
   }
   return (
     <div>
@@ -40,7 +40,7 @@ function Login() {
                 </div>
                 <button className="button btn-secondary" onClick={()=>HandleLogin()}>Guest Login</button>
                 <div>
-                    <input type="checkbox" /> <lable> Remember me</lable> 
+                    <input type="checkbox" /> <label> Remember me</label> 
                 </div>
                 <p>Don't have an account ?<Link to='signup' className="primary-text"> SignUp</Link></p>
             </form>
