@@ -1,14 +1,18 @@
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import {Navbar,Footer} from "./components/components";
-// import Footer from "./components/Footer";
-import Products from "./pages/Products";
+import {Login,Products,Signup} from "./pages/pages";
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
       <main>
-        <Products/>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="signup" element={<Signup/> } />
+          <Route path="products" element={<Products/>}/>
+        </Routes>
       </main>
       <Footer />
     </div>

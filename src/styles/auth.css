@@ -1,0 +1,17 @@
+.form-container{
+    padding: 0 1rem;
+}
+.form{
+    max-width: 400px;
+    border: 2px solid var(--secondary);
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+}
+.form-heading{
+    color: var(--emrald-dark);
+}

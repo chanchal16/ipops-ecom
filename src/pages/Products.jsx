@@ -1,11 +1,10 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect} from 'react';
 import {Sidebar, ProductCard} from '../components/components';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
 import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSortedProducts } from '../Utils/filterUtils';
-// import ProductCard from '../components/ProductCard';
 
-export default function Products() {
+function Products() {
     const {state,dispatch} = useFilter()
     const{products,category,sortBy,range,rating} = state
     const{all,eyeglasses,computerglasses,sunglasses} = category
@@ -63,3 +62,4 @@ export default function Products() {
     </div>
   )
 }
+export {Products}
