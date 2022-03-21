@@ -24,7 +24,7 @@ export default function Products() {
           })();
     }, [])
     
-
+    
     // utils
     const priceRangeProducts = getFilteredByPrice(products,range)   
     const ratingsProducts = getFilteredByRatings(priceRangeProducts,rating)
