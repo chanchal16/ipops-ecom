@@ -1,6 +1,30 @@
-import React from 'react'
+import React,{useEffect} from 'react'
+import { useWishlist } from '../contexts/WishlistContext';
+import axios from 'axios'
 
 function ProductCard({product}) {
+    const {state,dispatch} = useWishlist()
+    const addToWishlist = (item)=>{
+        dispatch({type:'ADD_TO_WISHLIST',payload:item})
+    }
+
+    useEffect(() => {
+        (async (product) => {
+            try {
+               await axios.post("/api/user/wishlist",{product})
+               .then((res) => {
+                    dispatch({type:'ADD_TO_WISHLIST'})
+                    // addToWishlist(product)
+                console.log('res',res);
+                })
+            }catch(err) { console.log(err)};
+            
+        })();
+    
+      return () => {
+        
+      }
+    }, [])
   return (
     <div>
         <div class="card" key={product._id}>
@@ -8,7 +32,7 @@ function ProductCard({product}) {
                         <img class="vc-image" 
                         src={product.img} 
                         alt="specs" loading="lazy" />
-                        <span class="gray close ">
+                        <span class="gray close " onClick={()=>addToWishlist(product)}>
                             <i class="far fa-heart fa-lg"></i>
                         </span>
                         {/* <span class="text-badge">new</span> */}
