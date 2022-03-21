@@ -1,17 +1,16 @@
-import React,{useEffect,useState} from 'react'
+import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
-export default function Signup() {
+function Signup() {
     const [signUpForm,setSignUpForm] = useState({name:'',email:'',password:''})
     const { SignUpHandler} = useAuth();
     const navigate= useNavigate()
 
-    useEffect(() => {
-        (async () => {
-            SignUpHandler(signUpForm.name,signUpForm.email, signUpForm.password);
-          })();
-    }, [signUpForm.name,signUpForm.email,signUpForm.password])
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        SignUpHandler(signUpForm.name,signUpForm.email, signUpForm.password);
+    }
 
     const handleSignUp = ()=>{
         setSignUpForm((f)=>({...f}))
@@ -20,7 +19,7 @@ export default function Signup() {
   return (
     <div>
         <div className="form-container">
-            <form className="form" onSubmit={(e) => e.preventDefault()}>
+            <form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <h1 className="form-heading h5">Sign Up</h1>
                 <div className="input-grp">
                     <label>Name</label>
@@ -43,3 +42,4 @@ export default function Signup() {
     </div>
   )
 }
+export {Signup}

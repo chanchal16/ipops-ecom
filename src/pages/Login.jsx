@@ -1,8 +1,8 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
-export default function Login() {
+function Login() {
   const navigate = useNavigate()
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -10,15 +10,12 @@ export default function Login() {
   });
   const {LoginHandler } = useAuth();
  
+  const handleSubmit = (e)=>{
+    e.preventDefault()
+    LoginHandler(loginForm.email, loginForm.password);
+  }
 
-  useEffect(() => {
-    (async () => {
-      LoginHandler(loginForm.email, loginForm.password);
-    })();
-  }, [loginForm.email, loginForm.password]);
-
-
-  function HandleLogin() {
+  const HandleLogin=() =>{
     setLoginForm((form) => ({
       ...form,
       email: "testing@test.com",
@@ -29,7 +26,7 @@ export default function Login() {
   return (
     <div>
         <div className="form-container">
-            <form className="form" onSubmit={(e) => e.preventDefault()}>
+            <form className="form" onSubmit={(e) => handleSubmit(e)}>
                 <h1 className="form-heading h5">Log In</h1>
                 <div className="input-grp">
                     <label>Email</label>
@@ -51,3 +48,4 @@ export default function Login() {
     </div>
   )
 }
+export {Login}
