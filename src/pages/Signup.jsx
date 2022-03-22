@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
@@ -7,10 +7,11 @@ function Signup() {
     const { SignUpHandler} = useAuth();
     const navigate= useNavigate()
 
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        SignUpHandler(signUpForm.name,signUpForm.email, signUpForm.password);
-    }
+    useEffect(() => {
+        (async () => {
+            SignUpHandler(signUpForm.name,signUpForm.email, signUpForm.password);
+          })();
+    }, [signUpForm.name,signUpForm.email,signUpForm.password])
 
     const handleSignUp = ()=>{
         setSignUpForm((f)=>({...f}))
@@ -19,7 +20,7 @@ function Signup() {
   return (
     <div>
         <div className="form-container">
-            <form className="form" onSubmit={(e) => handleSubmit(e)}>
+            <form className="form" onSubmit={(e) => e.preventDefault()}>
                 <h1 className="form-heading h5">Sign Up</h1>
                 <div className="input-grp">
                     <label>Name</label>
@@ -35,7 +36,7 @@ function Signup() {
                     <input type="password" className="input-field"
                     value={signUpForm.password} onChange={(e)=>setSignUpForm((f)=>({...f,password:e.target.value}))} />
                 </div>
-                <button className="button btn-secondary" onClick={()=>handleSignUp()}>Sign Up</button>
+                <button type='submit' className="button btn-secondary" onClick={handleSignUp}>Sign Up</button>
                 <p>Already have an account ?<Link to='/' className="primary-text">Sign in</Link></p>
             </form>
         </div>
