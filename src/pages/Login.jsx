@@ -10,18 +10,19 @@ function Login() {
   });
   const {LoginHandler,token } = useAuth();
  
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
-    LoginHandler(loginForm.email, loginForm.password);
-    
+    await LoginHandler(loginForm.email, loginForm.password); 
+    navigate('/products')  
   }
+
   console.log('token',token)
   const HandleLogin=() =>{
-    setLoginForm({
-      email: "adarshbalika@gmail.com",
-      password: "adarshbalika",
-    });
-    // navigate('/products')
+    setLoginForm((form)=>({
+      ...form,
+      email: "testing@test.com",
+      password: "test123",
+    }));
   }
   return (
     <div>
