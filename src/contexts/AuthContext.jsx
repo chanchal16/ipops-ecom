@@ -5,13 +5,11 @@ const AuthContext = createContext();
 
  function AuthContextProvider({children}) {
   //  get the token and user from localstorage
-  const loginToken = JSON.parse(localStorage.getItem("login"));
-  const registerToken = JSON.parse(localStorage.getItem('signup'))
-  const localUser = JSON.parse(localStorage.getItem('user'));
+  const loginToken = JSON.parse(localStorage.getItem("auth"));
+  const localUser = JSON.parse(localStorage.getItem('users'));
 
   const [token, setToken] = useState(loginToken?.token);
-  const [user, setUser] = useState(localUser); 
-  const[signupToken,setSignupToken] = useState(registerToken?.signupToken)
+  const [user, setUser] = useState([localUser?.user]); 
 
   const LoginHandler = async (email, password) => {
     if (email && password !== '' ) {
@@ -22,11 +20,11 @@ const AuthContext = createContext();
         } = await LoginUser(email, password);
         if (status === 200) {
           localStorage.setItem(
-            "login",
+            "auth",
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);
-          localStorage.setItem('user',JSON.stringify([...user,foundUser]))
+          localStorage.setItem('users',JSON.stringify([...user,foundUser]))
           setUser(foundUser);
         }
       } catch (error) {
@@ -44,12 +42,12 @@ const AuthContext = createContext();
         } = await SignUpUser(name,email, password);
         if (status === 201) {
           localStorage.setItem(
-            "signup",
-            JSON.stringify({ signupToken: encodedToken })
+            "auth",
+            JSON.stringify({ token: encodedToken })
           );
-          setSignupToken(encodedToken);
-          localStorage.setItem('user',JSON.stringify([...user,createdUser]))
-          setUser(...createdUser);
+          setToken(encodedToken);
+          localStorage.setItem('users',JSON.stringify([...user,createdUser]))
+          setUser(createdUser);
         }
       }
       catch (err){
