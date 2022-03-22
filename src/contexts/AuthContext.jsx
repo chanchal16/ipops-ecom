@@ -11,6 +11,7 @@ const AuthContext = createContext();
   const [token, setToken] = useState(loginToken?.token);
   const [user, setUser] = useState([localUser?.user]); 
 
+
   const LoginHandler = async (email, password) => {
     if (email && password !== '' ) {
       try {
@@ -55,7 +56,7 @@ const AuthContext = createContext();
       }
     }
   }
-  const ProviderItem = {token,signupToken, SignUpHandler,LoginHandler, user}
+  const ProviderItem = {token,SignUpHandler,LoginHandler, user}
   return (
     <div>
         <AuthContext.Provider value={ProviderItem}>

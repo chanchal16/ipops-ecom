@@ -26,7 +26,7 @@ function Login() {
   return (
     <div>
         <div className="form-container">
-            <form className="form" onSubmit={(e) => handleSubmit(e)}>
+            <form className="form" onSubmit={ handleSubmit}>
                 <h1 className="form-heading h5">Log In</h1>
                 <div className="input-grp">
                     <label>Email</label>
