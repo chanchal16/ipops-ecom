@@ -38,6 +38,7 @@ function Login() {
                     <input type="password" className="input-field" value={loginForm.password}
                     onChange={(e)=>setLoginForm((form)=>({...form,password:e.target.value}))} />
                 </div>
+                <button type='submit' className="button btn-secondary">Login</button>
                 <button className="button btn-secondary" onClick={()=>HandleLogin()}>Guest Login</button>
                 <div>
                     <input type="checkbox" /> <label> Remember me</label> 
