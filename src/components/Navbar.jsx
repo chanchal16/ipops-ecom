@@ -1,28 +1,30 @@
 import React from 'react'
-import specs from '../assets/spectacle-lenses.svg'
+import specs from '../assets/spectacle-lenses.svg';
+import {Link} from 'react-router-dom'
+import { useWishlist } from '../contexts/WishlistContext';
 
 function Navbar() {
+    const{wishlistState:{wishlist}} = useWishlist()
   return (
     <div>
         <header className="navbars">
-            <a href="../index.html" className="menu-icon">
+            <Link to=''  className="menu-icon">
                 <img src={specs} width="40px" height="40px" alt="logo" />
-            </a>
-            <a href="../index.html" className="brand-name h6">
+            </Link>
+            <Link to='/products'  className="brand-name h6">
                 ipops
-            </a>
+            </Link>
             <nav>
                 <ul>
                     <li className="list-items">
                         <div className='badge-icon'>
-                            <a href="./wishlist.html"><i className="fas fa-heart fa-lg"></i></a>
-                            <div className='badge dotbadge'>
-                            </div>
+                            <Link to='wishlist'><i className="fas fa-heart fa-lg"></i></Link>
+                           {wishlist.length>0? <div className='badge dotbadge'></div> : null}
                         </div>
                     </li>
                     <li className="list-items">
                         <div className='badge-icon'>
-                            <a href="./cart.html"><i className="fas fa-shopping-cart fa-lg"></i></a>
+                            <Link to=''><i className="fas fa-shopping-cart fa-lg"></i></Link>
                             <div className='badge numbadge'>
                             <small>1</small>
                             </div>
