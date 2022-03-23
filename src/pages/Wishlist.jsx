@@ -1,5 +1,5 @@
 import React from 'react'
-import { useWishlist,useAuth } from '../contexts/contexts'
+import { useWishlist,useAuth } from '../contexts/MainProvider'
 import { removeFromWishlist } from '../services/wishlistServices'
 
 function Wishlist() {

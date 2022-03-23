@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import {Sidebar, ProductCard} from '../components/components';
+import {Sidebar, ProductCard} from '../components/main-component';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
 import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSortedProducts } from '../Utils/filterUtils';
@@ -47,7 +47,6 @@ function Products() {
                 onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
                 />
                 <label>high to low</label>
-                {/* <button onClick={()=>DeleteToken()}>remove</button> */}
             </div>
             {/* <!---product list----> */}
             <div className='product-list'>

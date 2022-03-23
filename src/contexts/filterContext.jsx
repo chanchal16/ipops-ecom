@@ -11,10 +11,7 @@ const initialFilterState = {
 }
 
 const FilterProvider = ({ children }) => {
- 
   const [state, dispatch] = useReducer(filterReducer, initialFilterState);
-  console.log("state", state);
-//   console.log('produts',products)
  
   const providerItem = {state,dispatch}
   return (

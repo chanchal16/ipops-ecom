@@ -17,14 +17,12 @@ const wishlistContext = createContext()
           authorization: token
         }});
         wishlistDispatch({type:"GET_WISHLISTED_PRODUCTS",payload:wishlist});
-        console.log('wishlist',wishlist)
       } 
       catch(err){
         console.log('error while displaying wishlisted products',err)
       }
     }
   }, [token])
-  
        
   return (
     <div>
