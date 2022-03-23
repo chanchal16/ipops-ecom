@@ -1,28 +1,34 @@
-import React,{useState,createContext,useContext,useReducer} from 'react'
+import axios from 'axios';
+import React,{useEffect,createContext,useContext,useReducer} from 'react'
 import { wishlistReducer } from '../reducers/wishlistReducer';
+import { useAuth } from './AuthContext';
 
 const wishlistContext = createContext()
 
  function WishlistContextProvider({children}) {
-  const [state, dispatch] = useReducer(wishlistReducer, {wishlist:[]});
-  console.log("state", state);
-    // const [wishlist,setWishlist] = useState([])
-    
+  const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, {wishlist:[]});
+  const {token} = useAuth();
 
-    /*const addToWishlist = (product)=>{
-        const found = wishlist?.find((ele) => ele.id === product.id);
-        setIsWishlisted(found)
-        if(found){
-            return  wishlist.splice(found,1);
-              // setWishlist([...wishlist])                      
-        }else{
-           return setWishlist([...wishlist,product])
-        }       
-    }*/
-    
+  useEffect(() => {
+    async()=>{
+      try{
+        const{data:{wishlist}}=await axios.get("/api/user/wishlist",
+        {headers:{
+          authorization: token
+        }});
+        wishlistDispatch({type:"GET_WISHLISTED_PRODUCTS",payload:wishlist});
+        console.log('wishlist',wishlist)
+      } 
+      catch(err){
+        console.log('error while displaying wishlisted products',err)
+      }
+    }
+  }, [token])
+  
+       
   return (
     <div>
-        <wishlistContext.Provider value={{state,dispatch}}>
+        <wishlistContext.Provider value={{wishlistState,wishlistDispatch}}>
             {children}
         </wishlistContext.Provider>
     </div>
