@@ -4,9 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
-import { FilterProvider } from "./contexts/filterContext";
-import { WishlistContextProvider } from "./contexts/WishlistContext";
-import { AuthContextProvider } from "./contexts/AuthContext";
+import { FilterProvider,WishlistContextProvider,AuthContextProvider  } from "./contexts/contexts";
 
 // Call make Server
 makeServer();
