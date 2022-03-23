@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import {Navbar,Footer} from "./components/components";
-import {Login,Products,Signup,Wishlist} from "./pages/pages";
+import {Navbar,Footer} from "./components/main-component";
+import {Login,Products,Signup,Wishlist} from "./pages/main";
 import Mockman from 'mockman-js'
 
 function App() {

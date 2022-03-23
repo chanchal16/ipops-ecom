@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {useAuth,useWishlist } from '../contexts/contexts';
+import {useAuth,useWishlist } from '../contexts/MainProvider';
 import { addToWishlist,removeFromWishlist } from '../services/wishlistServices';
 import { ItemExists } from '../Utils/itemExists';
 
