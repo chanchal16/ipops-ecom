@@ -1,3 +1,4 @@
 export {Login} from './Login';
+export {Signup} from './Signup';
 export {Products} from './Products';
-export {Signup} from './Signup'
+export {Wishlist} from './Wishlist'
