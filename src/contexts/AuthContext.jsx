@@ -9,7 +9,8 @@ const AuthContext = createContext();
   const localUser = JSON.parse(localStorage.getItem('users'));
 
   const [token, setToken] = useState(loginToken?.token);
-  const [user, setUser] = useState([localUser?.user]); 
+  const [user, setUser] = useState([localUser]); 
+
 
   const LoginHandler = async (email, password) => {
     if (email && password !== '' ) {
@@ -28,7 +29,7 @@ const AuthContext = createContext();
           setUser(foundUser);
         }
       } catch (error) {
-        console.log("Error in login user", error);
+        console.log("Error in while logging in", error);
       }
     }
   };
@@ -55,7 +56,7 @@ const AuthContext = createContext();
       }
     }
   }
-  const ProviderItem = {token,signupToken, SignUpHandler,LoginHandler, user}
+  const ProviderItem = {token,SignUpHandler,LoginHandler}
   return (
     <div>
         <AuthContext.Provider value={ProviderItem}>

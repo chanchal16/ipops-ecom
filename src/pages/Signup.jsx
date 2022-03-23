@@ -14,7 +14,9 @@ function Signup() {
     }, [signUpForm.name,signUpForm.email,signUpForm.password])
 
     const handleSignUp = ()=>{
-        setSignUpForm((f)=>({...f}))
+        setSignUpForm((form)=>({
+            ...form,
+        }))
         navigate('/')
     }
   return (
