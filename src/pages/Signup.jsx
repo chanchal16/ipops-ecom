@@ -38,7 +38,7 @@ function Signup() {
                     <input type="password" className="input-field"
                     value={signUpForm.password} onChange={(e)=>setSignUpForm((f)=>({...f,password:e.target.value}))} />
                 </div>
-                <button type='submit' className="button btn-secondary" onClick={handleSignUp}>Sign Up</button>
+                <button type='submit' className="button primary-btn" onClick={handleSignUp}>Sign Up</button>
                 <p>Already have an account ?<Link to='/' className="primary-text">Sign in</Link></p>
             </form>
         </div>
