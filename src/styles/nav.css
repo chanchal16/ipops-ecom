@@ -1,12 +1,14 @@
 .navbars{
-    background-color: var(--secondary);
+    background-color: var(--light);
 }
-.brand-name{
+.brand-name,.icon-links,.acount{
     font-family: var(--font);
+    color: var(--primary-dark);
 }
 .brand-name:hover,
-.list-items a:hover{
-    color: var(--emrald-dark);
+.list-items a:hover,
+.acount:hover{
+    color: var(--primary);
 }
 .menu-icon{
     padding: 0;
