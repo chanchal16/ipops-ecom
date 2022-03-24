@@ -1,10 +1,11 @@
 import React from 'react'
 import specs from '../assets/spectacle-lenses.svg';
 import {Link} from 'react-router-dom'
-import { useWishlist } from '../contexts/WishlistContext';
+import { useWishlist,useCart } from '../contexts/MainProvider';
 
 function Navbar() {
     const{wishlistState:{wishlist}} = useWishlist()
+    const{cartState} = useCart()
   return (
     <div>
         <header className="navbars">
@@ -24,10 +25,13 @@ function Navbar() {
                     </li>
                     <li className="list-items">
                         <div className='badge-icon'>
-                            <Link to=''><i className="fas fa-shopping-cart fa-lg"></i></Link>
-                            <div className='badge numbadge'>
-                            <small>1</small>
-                            </div>
+                            <Link to='/cart'><i className="fas fa-shopping-cart fa-lg"></i></Link>
+                            {cartState.cart.length>0 ?
+                                <div className='badge numbadge'>
+                                    <small>{cartState.totalItems}</small>
+                                </div>
+                                : null
+                            }                       
                         </div>
                     </li>
                     <li className="list-items">
