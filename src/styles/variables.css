@@ -1,6 +1,16 @@
 :root{
-    --emrald-light:#f5fffa;
-    --emrald-dark:#065f46;
+    /* colors */
+    /* --emrald-light:#f5fffa; */
+    /* --emrald-dark:#065f46; */
+    --light:#f6fbff;
+    --primary-light:#c7e3fd;
+    --primary: #A2D2FF;
+    --primary-dark:#449af6;
+    --secondary:#152D35;
+    --accent: #FF865E;
+    --light-green:#d2ffa2;
+    --beige:#FEF9EF;
+    --baby-pink: #ffa2d2;
 
 
     /* font family */
