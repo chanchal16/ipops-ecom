@@ -1,10 +1,13 @@
 import React,{useState,useEffect} from 'react'
-import {useAuth,useWishlist } from '../contexts/MainProvider';
+import { Link } from "react-router-dom";
+import {useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 import { addToWishlist,removeFromWishlist } from '../services/wishlistServices';
+import { addToCart } from '../services/cartServices';
 import { ItemExists } from '../Utils/itemExists';
 
 function ProductCard({product}) { 
     const{token} = useAuth();
+    const {cartState,cartDispatch} = useCart()
     const {wishlistState,wishlistDispatch} = useWishlist()
     const [isWishlisted,setIsWishlisted] = useState(false)
 
@@ -21,8 +24,15 @@ function ProductCard({product}) {
             removeFromWishlist(token,wishlistDispatch,product._id)
         }
         setIsWishlisted(!isWishlisted)
-    }   
-   
+    }
+    
+    // cart handler
+    const cartHandler=async(item)=>{  
+        if(!ItemExists(cartState.cart,item._id)){
+            item.qty = 1;
+            await addToCart(token,cartDispatch,item)
+        }   
+    }
   return (
     <div>
         <div class="card" key={product._id}>
@@ -45,11 +55,20 @@ function ProductCard({product}) {
                 </div>
                 <div class="desc">
                     <p class="desc-title">{product.categoryName}</p>
-                    <p><strong>₹{product.price} </strong> <span class="strike-text gray">Rs.999
-                        </span> <span class="secondary">20% off</span></p>
+                    <p><strong>₹{product.price}</strong></p>
                 </div>
                 <div class="action-btns">
-                    <button class="btn"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                {ItemExists(cartState.cart,product.id) ?
+                    <Link to='/cart'>
+                        <button class="btn go-to-cart" >
+                            <i class="fas fa-shopping-cart"></i> Go to cart
+                        </button>
+                    </Link>                  
+                    : 
+                    <button class="btn" onClick={()=>cartHandler(product)}>
+                        <i class="fas fa-shopping-cart"></i> Add to cart
+                    </button>
+                }
                 </div>
             </div>
         </div>
