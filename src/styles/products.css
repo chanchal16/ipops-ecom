@@ -19,6 +19,12 @@
 .btn:hover{
     background-color: var(--secondary-dark);
 }
+.go-to-cart{
+    background-color: var(--primary);
+}
+.go-to-cart:hover{
+    background-color: var(--primary-dark);
+}
 /* section */
 section{
     width: 100%;
