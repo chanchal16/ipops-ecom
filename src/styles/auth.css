@@ -3,7 +3,7 @@
 }
 .form{
     max-width: 400px;
-    border: 2px solid var(--secondary);
+    border: 2px solid var(--primary);
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
@@ -13,5 +13,12 @@
     padding: 1rem 0.5rem;
 }
 .form-heading{
-    color: var(--emrald-dark);
+    color: var(--primary-dark);
+}
+/* button */
+.button{
+    width: 80%;
+}
+.btn-secondary:hover{
+    background-color: #244652;
 }
