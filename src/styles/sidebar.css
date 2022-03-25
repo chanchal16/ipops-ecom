@@ -1,6 +1,6 @@
 aside{
     width: 200px;
-    background-color: var(--emrald-light);
+    background-color: var(--light);
     padding: 1rem 0;
 }
 .sidebar-heading{
@@ -20,7 +20,7 @@ input[type='checkbox'],input[type='radio']{
     height: 1em;
 }
 .accent{
-    accent-color: var(--secondary);
+    accent-color: var(--primary);
 }
 .--slider{
     outline: none;
