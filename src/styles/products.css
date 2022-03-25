@@ -14,16 +14,18 @@
     background-color: transparent;
 }
 .btn{
-    background-color: var(--secondary);
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 .btn:hover{
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
+    color: white;
 }
 .go-to-cart{
-    background-color: var(--primary);
+    background-color: var(--accent);
 }
 .go-to-cart:hover{
-    background-color: var(--primary-dark);
+    background-color: var(--accent-dark);
 }
 /* section */
 section{
@@ -33,7 +35,7 @@ section{
     padding: 1rem;
 }
 .close{
-    color: var(--primary);
+    color: var(--baby-pink);
 }
 /* ratings */
 .badge-rating{
