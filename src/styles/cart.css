@@ -52,7 +52,11 @@
     padding: 10px 15px;
     width: 100%;
     margin: auto;
-    background-color: var(--primary);
+    background-color: var(--light-green);
+    color:var(--secondary)
+}
+.btn.order:hover{
+    background-color: #b8f775;
 }
 .total-price{
     flex-grow: 1;
