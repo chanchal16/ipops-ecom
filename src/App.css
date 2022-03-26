@@ -28,5 +28,84 @@ main{
 .main-container{
   display: flex;
 }
-
+/* ****banner**** */
+.banner{
+  background-color: var(--light);
+  padding: 2rem 1rem;
+}
+.banner img{ 
+  display: block;
+  width: 100%;
+}
+/* ******trends******* */
+.trends{
+  padding: 1rem 0;
+  margin: 2rem 0;
+  /* background-color: var(--beige); */
+}
+.heading{
+  text-align: center;
+}
+.trends-div,.images-container{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+.child-div{
+  max-width: 200px;    
+}
+/* categories */
+.categories-container{
+  margin: 1rem;
+  padding: 1rem;
+  
+}
+.categories{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  padding: 1rem;
+}
+.category{
+  width: 250px;
+}
+/* category heading */
+.line{
+  display:block;
+   margin:25px
+}
+.title-border{ 
+  text-align:center; 
+  border-bottom:1px solid var(--basic); 
+  position:relative; 
+}
+.line p span { 
+  background-color: white; 
+  position: relative; 
+  top: 1rem; 
+  padding: 0 10px;
+}
+/* **services** */
+.services-container{
+  background-color: var(--beige);
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+.service{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+/* ****images**** */
+.images{
+  margin: 2rem 1rem;
+  border-top: 1px solid var(--basic);
+}
+.image-div{
+  max-width: 30rem;
+}
 
