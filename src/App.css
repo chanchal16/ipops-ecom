@@ -41,7 +41,6 @@ main{
 .trends{
   padding: 1rem 0;
   margin: 2rem 0;
-  /* background-color: var(--beige); */
 }
 .heading{
   text-align: center;
@@ -93,6 +92,7 @@ main{
   background-color: var(--beige);
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   padding: 1rem;
 }
 .service{
@@ -107,5 +107,17 @@ main{
 }
 .image-div{
   max-width: 30rem;
+}
+
+/* media queries */
+@media only screen and (max-width: 600px) {
+  .categories{
+    grid-template-columns: auto;
+    grid-template-rows: repeat(3,1fr);
+  }
+  .services-container{
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 
