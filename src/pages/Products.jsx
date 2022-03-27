@@ -3,6 +3,7 @@ import {Sidebar, ProductCard} from '../components/main-component';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
 import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSortedProducts } from '../Utils/filterUtils';
+import Spinner from '../components/Spinner';
 
 function Products() {
     const {state,dispatch} = useFilter()
@@ -51,9 +52,18 @@ function Products() {
             {/* <!---product list----> */}
             <div className='product-list'>
             {
-             filteredProducts.length>0 && filteredProducts?.map(product=>(
+             /*filteredProducts.length>0 && filteredProducts?.map(product=>(
                 <ProductCard product={product} key={product._id} />
-            ))  
+            )) */ 
+            filteredProducts.length>0 ? (
+                filteredProducts?.map(product=>(
+                    <ProductCard product={product} key={product._id} />
+                ))
+            ):( 
+                <>           
+                <Spinner/>
+                </>
+            )
             }
             </div>
         </section>
