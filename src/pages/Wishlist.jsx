@@ -1,6 +1,8 @@
 import React from 'react'
+import empty from '../assets/empty.svg';
 import { useWishlist,useAuth } from '../contexts/MainProvider'
-import { removeFromWishlist } from '../services/wishlistServices'
+import { removeFromWishlist } from '../services/wishlistServices';
+import {Link} from 'react-router-dom'
 
 function Wishlist() {
     const{token} = useAuth();
@@ -8,7 +10,8 @@ function Wishlist() {
   return (
     <div className='wishlist-container'>
         {
-            wishlist?.length > 0 && wishlist?.map(wishlistItem=>(
+            wishlist?.length > 0 ?
+            ( wishlist?.map(wishlistItem=>(
                 <div class="card" key={wishlistItem._id}>
                     <div class="card-media">
                         <img class="vc-image" 
@@ -38,6 +41,15 @@ function Wishlist() {
                     </div>
                 </div>
             ))
+            ):(
+                <div className='empty-cart'>
+                    <img src={empty} alt='cart' />
+                    <span className='text-sm gray-text'>Looks like your wishlist is empty</span>
+                    <Link to='/products'>
+                        <button className='button btn-primary'>View Products</button>
+                    </Link>
+                </div>
+            )
         }
         
     </div>

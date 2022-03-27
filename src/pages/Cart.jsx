@@ -1,7 +1,9 @@
 import React from 'react';
 import { useAuth,useCart } from '../contexts/MainProvider'
 import { removeFromCart } from '../services/cartServices';
-import {decreaseQtyHandler} from '../Utils/cartUtil'
+import {decreaseQtyHandler} from '../Utils/cartUtil';
+import emptycart from '../assets/empty-cart.svg';
+import {Link} from 'react-router-dom'
 
 function Cart() {
     const{token} = useAuth();
@@ -10,6 +12,7 @@ function Cart() {
     
   return (
     <div className='cart-section'>
+        {cartState.cart?.length>0 ? (
         <div className="cart-container">
             <div className="cart-items">
                 <div className="items-div">
@@ -20,7 +23,7 @@ function Cart() {
                         </span>
                     </div>
                     <div className='card-container'>
-                    {cartState.cart?.length>0 && cartState.cart?.map(item=>(
+                    { cartState.cart?.map(item=>(
                         <div className="horizontal-card">
                             <div className="card-media">
                                 <img className="hc-image"
@@ -75,7 +78,17 @@ function Cart() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div>)
+        :(
+            <div className='empty-cart'>
+                <img src={emptycart} alt='cart' />
+                <span className='text-sm gray-text'>Your cart is empty..</span>
+                <Link to='/products'>
+                    <button className='button btn-primary'>Add Products</button>
+                </Link>
+            </div>
+        )
+        }
     </div>
   )
 }
