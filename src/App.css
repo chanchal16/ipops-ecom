@@ -109,6 +109,29 @@ main{
   max-width: 30rem;
 }
 
+/* spinner */
+.spinner-div{
+  margin: auto;
+  padding: 5rem;
+}
+.spinner{
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  border-top-color: rgb(4, 73, 73);
+  animation: rotating 2s linear infinite;
+}
+@keyframes rotating {
+  from{
+      transform: rotate(0deg);
+  }
+  to{
+      transform: rotate(360deg);
+  }
+}
+
 /* media queries */
 @media only screen and (max-width: 600px) {
   .categories{
