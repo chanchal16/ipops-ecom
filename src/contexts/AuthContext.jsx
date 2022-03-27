@@ -56,7 +56,7 @@ const AuthContext = createContext();
       }
     }
   }
-  const ProviderItem = {token,SignUpHandler,LoginHandler}
+  const ProviderItem = {token,user,SignUpHandler,LoginHandler}
   return (
     <div>
         <AuthContext.Provider value={ProviderItem}>

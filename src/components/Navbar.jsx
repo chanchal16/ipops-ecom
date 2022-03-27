@@ -1,11 +1,12 @@
 import React from 'react'
 import specs from '../assets/spectacle-lenses.svg';
 import {Link} from 'react-router-dom'
-import { useWishlist,useCart } from '../contexts/MainProvider';
+import { useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 
 function Navbar() {
     const{wishlistState:{wishlist}} = useWishlist()
-    const{cartState} = useCart()
+    const{cartState} = useCart();
+    const{user,token} = useAuth()
   return (
     <div>
         <header className="navbars">
@@ -34,9 +35,14 @@ function Navbar() {
                             }                       
                         </div>
                     </li>
-                    <li className="list-items acount">
-                        <i className="far fa-user-circle fa-2x"></i>
-                    </li>
+                    {token? (
+                        <li className="list-items acount">
+                            <i className="far fa-user-circle fa-2x"></i>
+                        </li>
+                        ):(
+                           <Link to='login'><button class="login">Login</button></Link>
+                        )
+                    }
                 </ul>
             </nav>
         </header>
