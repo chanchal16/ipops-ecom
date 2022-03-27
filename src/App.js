@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {Navbar,Footer} from "./components/main-component";
-import {Login,Products,Signup,Wishlist,Cart} from "./pages/main";
+import {Login,Products,Signup,Wishlist,Cart,Home} from "./pages/main";
 import Mockman from 'mockman-js'
 
 function App() {
@@ -10,7 +10,8 @@ function App() {
       <Navbar/>
       <main>
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="signup" element={<Signup/> } />
           <Route path="products" element={<Products/>}/>
           <Route path="wishlist" element={<Wishlist/>}/>
