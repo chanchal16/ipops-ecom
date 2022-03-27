@@ -16,7 +16,7 @@
     color: var(--primary-dark);
 }
 /* button */
-.button{
+.form-container.button{
     width: 80%;
 }
 .btn-secondary:hover{
