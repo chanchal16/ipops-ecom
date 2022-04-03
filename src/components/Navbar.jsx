@@ -1,19 +1,28 @@
 import React from 'react'
 import specs from '../assets/spectacle-lenses.svg';
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import { useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 
 function Navbar() {
-    const{wishlistState:{wishlist}} = useWishlist()
-    const{cartState} = useCart();
-    const{user,token} = useAuth()
+    const{wishlistState:{wishlist},wishlistDispatch} = useWishlist()
+    const{cartState,cartDispatch} = useCart();
+    const{user,setUser} = useAuth();
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        setUser(null);
+        localStorage.removeItem("auth");
+        cartDispatch({ type: 'CLEAR_CART' });
+        wishlistDispatch({type:'CLEAR_WISHLIST'})
+        navigate("/");
+      };
   return (
     <div>
         <header className="navbars">
             <Link to=''  className="menu-icon">
                 <img src={specs} width="40px" height="40px" alt="logo" />
             </Link>
-            <Link to='/products'  className="brand-name h6">
+            <Link to='/'  className="brand-name h6">
                 ipops
             </Link>
             <nav>
@@ -35,12 +44,15 @@ function Navbar() {
                             }                       
                         </div>
                     </li>
-                    {token? (
+                    {user? (
                         <li className="list-items acount">
-                            <i className="far fa-user-circle fa-2x"></i>
+                            {/* <i className="far fa-user-circle fa-2x"></i> */}
+                            <button className='button login' onClick={handleLogout}>logout</button>
                         </li>
                         ):(
-                           <Link to='login'><button class="login">Login</button></Link>
+                           <Link to='login'>
+                               <button class="login button">Login</button>
+                            </Link>
                         )
                     }
                 </ul>
