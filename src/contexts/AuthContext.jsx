@@ -9,7 +9,7 @@ const AuthContext = createContext();
   const localUser = JSON.parse(localStorage.getItem('users'));
 
   const [token, setToken] = useState(loginToken?.token);
-  const [user, setUser] = useState([localUser]); 
+  const [user, setUser] = useState(); 
 
 
   const LoginHandler = async (email, password) => {
@@ -25,7 +25,7 @@ const AuthContext = createContext();
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);
-          localStorage.setItem('users',JSON.stringify([...user,foundUser]))
+          // localStorage.setItem('users',JSON.stringify([...user,foundUser]))
           setUser(foundUser);
         }
       } catch (error) {
@@ -56,7 +56,7 @@ const AuthContext = createContext();
       }
     }
   }
-  const ProviderItem = {token,user,SignUpHandler,LoginHandler}
+  const ProviderItem = {token,user,setUser,SignUpHandler,LoginHandler}
   return (
     <div>
         <AuthContext.Provider value={ProviderItem}>
