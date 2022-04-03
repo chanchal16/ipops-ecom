@@ -6,6 +6,11 @@ const wishlistReducer = (state,action)=>{
             return {...state, wishlist:state.wishlist.concat(action.payload)};
         case 'REMOVE_FROM_WISHLIST':
             return {...state, wishlist:state.wishlist.filter((item) => item._id !== action.payload)};
+        case 'CLEAR_WISHLIST':
+            return {
+                ...state,
+                wishlist:[]
+            }
         default:
             return state;
     }
