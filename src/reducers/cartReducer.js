@@ -32,6 +32,13 @@ const cartReducer = (state,action)=>{
                 }),
                 totalPrice:state.totalPrice - parseInt(action.payload.price,10)
             }
+        case 'CLEAR_CART':
+            return {
+                ...state,
+                cart:[],
+                totalPrice:0,
+                totalItems:0
+            }
     }
 }
 export{cartReducer}
