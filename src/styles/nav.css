@@ -29,3 +29,10 @@
 .numbadge{
     bottom: 0.8rem;
 }
+/* login btn */
+.login{
+    background-color: var(--primary-dark);
+}
+.login:hover{
+    background-color: var(--primary);
+}
