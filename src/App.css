@@ -32,10 +32,21 @@ main{
 .banner{
   background-color: var(--light);
   padding: 2rem 1rem;
+  position: relative;
 }
 .banner img{ 
   display: block;
   width: 100%;
+}
+.shop{
+  position: absolute;
+  bottom:7rem;
+  margin-left:45%;
+  margin-right: 45%;
+  
+}
+.shop:hover{
+  background-color: var(--primary-dark);
 }
 /* ******trends******* */
 .trends{
@@ -67,6 +78,9 @@ main{
   justify-content: center;
   justify-items: center;
   padding: 1rem;
+}
+.categories a{
+  color: var(--dark);
 }
 .category{
   width: 250px;
