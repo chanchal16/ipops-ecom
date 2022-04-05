@@ -1,14 +1,18 @@
 import React from 'react';
 import {trends,services} from '../Utils/Data';
 import { categories } from '../backend/db/categories';
+import {Link} from 'react-router-dom'
+import { useFilter } from '../contexts/filterContext';
 
 function Home() {
+    const {filterDispatch} = useFilter()
   return (
     <div>
         <div className="banner">
                 <img src="https://www.novaeyewear.com/skin/frontend/novacombos/default/images/new-banner2.jpg"
                 loading="lazy"
                 alt="banner" />
+                <Link to='/products'><button className='button primary-btn shop'>Shop now</button></Link>
         </div>
         {/* categories */}
         <div className='categories-container heading'>
@@ -18,10 +22,13 @@ function Home() {
             <div className='categories'>
                 {
                     categories.map(category=>(
-                        <div className='category' key={category._id}>
+                        <Link to='/products'>
+                        <div className='category' key={category._id} 
+                        value={category.categoryName} onClick={(e)=>filterDispatch({type:'CATEGORY',payload:category.categoryName})}>
                             <img className='res-image' src={category.img} alt='category' />
-                            <p className='text-sm'>{category.categoryName}</p>
+                            <p className='text-sm'>{category.categoryName.toUpperCase()}</p>
                         </div>
+                        </Link>
                     ))
                 }
             </div>
