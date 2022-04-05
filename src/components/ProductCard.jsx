@@ -7,8 +7,7 @@ import { ItemExists } from '../Utils/itemExists';
 function ProductCard({product}) { 
     const{token,user} = useAuth();
     const {cartState,cartDispatch} = useCart()
-    const {wishlistState,wishlistDispatch} = useWishlist()
-    const [isWishlisted,setIsWishlisted] = useState(false)
+    const {wishlistState,wishlistDispatch,isWishlisted,setIsWishlisted} = useWishlist()
     const navigate = useNavigate();
 
     // check for wishlisted items
