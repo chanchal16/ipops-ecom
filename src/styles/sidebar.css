@@ -3,6 +3,13 @@ aside{
     background-color: var(--light);
     padding: 1rem 0;
 }
+.link{
+    color: var(--primary-dark);
+    margin-left: 1.5rem;
+}
+.link:hover{
+    background-color: var(--primary-light);
+}
 .sidebar-heading{
     padding: 0 1rem;
 }
