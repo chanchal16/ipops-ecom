@@ -25,7 +25,7 @@ const AuthContext = createContext();
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);
-          // localStorage.setItem('users',JSON.stringify([...user,foundUser]))
+          localStorage.setItem('users',JSON.stringify(foundUser))
           setUser(foundUser);
         }
       } catch (error) {
@@ -47,7 +47,7 @@ const AuthContext = createContext();
             JSON.stringify({ token: encodedToken })
           );
           setToken(encodedToken);
-          localStorage.setItem('users',JSON.stringify([...user,createdUser]))
+          localStorage.setItem('users',JSON.stringify(createdUser))
           setUser(createdUser);
         }
       }
