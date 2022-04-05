@@ -13,23 +13,10 @@ const filterReducer = (state, action) => {
           ...state,
           sortBy:action.type
         }    
-      case "All":
-        return [...state];
-      case 'EYEGLASSES':
-        return {
-          ...state,
-          category:{...state.category,eyeglasses:!state.category.eyeglasses}
-        };
-      case 'COMPUTERGLASSES':
-        return {
-          ...state,
-          category:{...state.category,computerglasses:!state.category.computerglasses}
-        }
-      case 'SUNGLASSES':
-        return {
-          ...state,
-          category:{...state.category,sunglasses:!state.category.sunglasses}
-        }
+      case 'CATEGORY':
+        return state.category.includes(action.payload)? 
+        { ...state,category:[...state.category.filter(item=> item !== action.payload)]}
+           : {...state, category:[...state.category,action.payload]}
       case "RATINGSS":
         return {
           ...state,
@@ -44,7 +31,7 @@ const filterReducer = (state, action) => {
         return {
           ...state,
           sortBy:'',
-          category:{eyeglasses:false,computerglasses:false,sunglasses:false},
+          category:[],
           rating:null ,
           range:'' 
         }
