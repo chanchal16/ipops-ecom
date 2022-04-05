@@ -5,15 +5,15 @@ const filterContext = createContext();
 const initialFilterState = {
     sortBy:'',
     products:[],
-    category:{eyeglasses:false,computerglasses:false,sunglasses:false},
+    category:[],
     rating:null ,
     range:'' 
 }
 
 const FilterProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, initialFilterState);
+  const [filterState, filterDispatch] = useReducer(filterReducer, initialFilterState);
  
-  const providerItem = {state,dispatch}
+  const providerItem = {filterState, filterDispatch}
   return (
     <filterContext.Provider value={providerItem}>
       {children}
