@@ -1,15 +1,20 @@
 import React from 'react';
-import { useAuth,useCart } from '../contexts/MainProvider'
-import { removeFromCart } from '../services/cartServices';
+import { useAuth,useCart,useWishlist } from '../contexts/MainProvider'
+import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler} from '../Utils/cartUtil';
 import emptycart from '../assets/empty-cart.svg';
 import {Link} from 'react-router-dom'
 
 function Cart() {
     const{token} = useAuth();
-    const{cartState,cartDispatch} = useCart()
-  
-    
+    const{cartState,cartDispatch} = useCart();
+    const {wishlistDispatch,isWishlisted,setIsWishlisted} = useWishlist();
+
+    const handleWishlist = (item)=>{
+        addToWishlist(token,wishlistDispatch,item)
+        setIsWishlisted(!isWishlisted)
+    }
+     
   return (
     <div className='cart-section'>
         {cartState.cart?.length>0 ? (
@@ -34,8 +39,12 @@ function Cart() {
                                 <h3 className="card-title">{item.name}</h3>
                                 <p className="gray card-sub-title">Eyeglasses</p>
                                 <p className="gray card-sub-title"><strong>₹{item.price}</strong></p>
-                                <div className="btns">
-                                    <a className="link-secondary btn-link">add to wishlist</a>
+                                <div className="btns">                          
+                                   {isWishlisted ? <a className="link-secondary btn-link">wishlisted</a>
+                                    :<a className="link-secondary btn-link" onClick={()=>handleWishlist(item)}>
+                                        add to wishlist
+                                    </a>
+                                    } 
                                     <a className="link-secondary" onClick={()=>removeFromCart(token,cartDispatch,item)}>Remove</a>
                                 </div>
                                 <div className="count-div">
