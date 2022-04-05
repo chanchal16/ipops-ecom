@@ -7,33 +7,15 @@ const getSortedProducts = (products,sortBy)=>{
   }
   return products
 }
-const getFliteredByCategory = (sortedproducts,all ,eyeglasses, computerglasses,sunglasses) => {
-    const filteredlist = [];
-    if (eyeglasses===false && computerglasses===false && sunglasses===false) {
-      return sortedproducts;
+// by category
+const getFliteredByCategory = (sortedproducts,category) => {
+    let filteredlist = sortedproducts;
+    if (category.length !== 0) {
+      filteredlist = filteredlist.filter((item => category.includes(item.categoryName)))
     }
-    if (eyeglasses) {
-      let newList = sortedproducts.filter(
-        (item) => "eyeglasses" === item.categoryName
-      );
-      filteredlist.push(...newList);
-    }
-  
-    if (computerglasses) {
-      let newList = sortedproducts.filter(
-        (item) => "computerglasses" === item.categoryName
-      ); 
-      filteredlist.push(...newList);
-    }
-    if (sunglasses) {
-        let newList = sortedproducts.filter(
-          (item) => "sunglasses" === item.categoryName
-        );
-        filteredlist.push(...newList);
-    }
-    console.log("filtered list", filteredlist);
     return filteredlist;
   };
+  // by ratings
   const getFilteredByRatings = (sortedproducts,rating)=>{
     if(rating){
       return sortedproducts.filter(item=>item.rating >= rating)
