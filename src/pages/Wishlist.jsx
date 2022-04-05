@@ -1,12 +1,21 @@
 import React from 'react'
 import empty from '../assets/empty.svg';
-import { useWishlist,useAuth } from '../contexts/MainProvider'
-import { removeFromWishlist } from '../services/wishlistServices';
-import {Link} from 'react-router-dom'
+import { useWishlist,useAuth,useCart } from '../contexts/MainProvider'
+import { removeFromWishlist,addToCart } from '../services';
+import {Link} from 'react-router-dom';
+import {ItemExists} from '../Utils/itemExists'
 
 function Wishlist() {
     const{token} = useAuth();
     const {wishlistState:{wishlist},wishlistDispatch} = useWishlist()
+    const{cartState,cartDispatch} = useCart();
+
+    const cartHandler =async (item)=>{
+        if(!ItemExists(cartState.cart,item._id)){
+            item.qty = 1;
+            await addToCart(token,cartDispatch,item)
+        } 
+    }
   return (
     <div className='wishlist-container'>
         {
@@ -36,7 +45,17 @@ function Wishlist() {
                             </p>
                         </div>
                         <div class="action-btns">
-                            <button class="btn"><i class="fas fa-shopping-cart"></i> Add to cart</button>
+                        {ItemExists(cartState.cart,wishlistItem.id) ?
+                            <Link to='/cart'>
+                                <button class="btn go-to-cart" >
+                                    <i class="fas fa-shopping-cart"></i> Go to cart
+                                </button>
+                            </Link>                  
+                            : 
+                            <button class="btn" onClick={()=>cartHandler(wishlistItem)}>
+                                <i class="fas fa-shopping-cart"></i> Add to cart
+                            </button>
+                        }
                         </div>
                     </div>
                 </div>
