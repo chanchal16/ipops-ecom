@@ -6,27 +6,25 @@ import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSor
 import Spinner from '../components/Spinner';
 
 function Products() {
-    const {state,dispatch} = useFilter()
-    const{products,category,sortBy,range,rating} = state
-    const{all,eyeglasses,computerglasses,sunglasses} = category
+    const {filterState, filterDispatch} = useFilter()
+    const{products,category,sortBy,range,rating} = filterState
 
     useEffect(() => {
         (async () => {
             try {
                await axios.get("/api/products")
                .then((res) => {
-                    dispatch({type:'GET_ALL_PRODUCTS',payload:res.data.products})
+                    filterDispatch({type:'GET_ALL_PRODUCTS',payload:res.data.products})
                 })
             }catch(err) { console.log(err)};
             
           })();
     }, [])
-    
-    
+       
     // utils
     const priceRangeProducts = getFilteredByPrice(products,range)   
     const ratingsProducts = getFilteredByRatings(priceRangeProducts,rating)
-    const categoryProducts = getFliteredByCategory(ratingsProducts,all,eyeglasses,computerglasses,sunglasses)
+    const categoryProducts = getFliteredByCategory(ratingsProducts,category)
     const filteredProducts = getSortedProducts(categoryProducts,sortBy)
     
   return (
@@ -38,23 +36,20 @@ function Products() {
                 type="radio"
                 name="radiobtn"
                 checked={sortBy === "LOW_TO_HIGH"}
-                onChange={() => dispatch({ type: "LOW_TO_HIGH" })}
+                onChange={() => filterDispatch({ type: "LOW_TO_HIGH" })}
                 />
                 <label>low to high</label>
                 <input
                 type="radio"
                 name="radiobtn"
                 checked={sortBy === "HIGH_TO_LOW"}
-                onChange={() => dispatch({ type: "HIGH_TO_LOW" })}
+                onChange={() => filterDispatch({ type: "HIGH_TO_LOW" })}
                 />
                 <label>high to low</label>
             </div>
             {/* <!---product list----> */}
             <div className='product-list'>
             {
-             /*filteredProducts.length>0 && filteredProducts?.map(product=>(
-                <ProductCard product={product} key={product._id} />
-            )) */ 
             filteredProducts.length>0 ? (
                 filteredProducts?.map(product=>(
                     <ProductCard product={product} key={product._id} />
