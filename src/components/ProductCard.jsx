@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import {useAuth,useWishlist,useCart } from '../contexts/MainProvider';
-import { addToWishlist,removeFromWishlist } from '../services/wishlistServices';
-import { addToCart } from '../services/cartServices';
+import { addToWishlist,removeFromWishlist,addToCart } from '../services';
 import { ItemExists } from '../Utils/itemExists';
 
 function ProductCard({product}) { 
-    const{token} = useAuth();
+    const{token,user} = useAuth();
     const {cartState,cartDispatch} = useCart()
     const {wishlistState,wishlistDispatch} = useWishlist()
     const [isWishlisted,setIsWishlisted] = useState(false)
+    const navigate = useNavigate();
 
     // check for wishlisted items
     useEffect(() => {
@@ -19,7 +19,11 @@ function ProductCard({product}) {
     // wishlist handler
     const wishlistHandler = (product)=>{       
         if(!isWishlisted){
+            if(user){
             addToWishlist(token,wishlistDispatch,product)
+            }else{
+                navigate('/login')
+            }
         }else{
             removeFromWishlist(token,wishlistDispatch,product._id)
         }
@@ -27,11 +31,15 @@ function ProductCard({product}) {
     }
     
     // cart handler
-    const cartHandler=async(item)=>{  
-        if(!ItemExists(cartState.cart,item._id)){
-            item.qty = 1;
-            await addToCart(token,cartDispatch,item)
-        }   
+    const cartHandler=async(item)=>{ 
+        if(user){ 
+            if(!ItemExists(cartState.cart,item._id)){
+                item.qty = 1;
+                await addToCart(token,cartDispatch,item)
+            } 
+        }else{
+            navigate('/login')
+        }  
     }
   return (
     <div>
