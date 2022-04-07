@@ -1,3 +1,7 @@
+.total-prod{
+    padding: 1rem;
+    color: var(--secondary);
+}
 .product-list{
     padding: 2rem;
     margin-bottom: 1rem;
@@ -31,9 +35,7 @@
 section{
     width: 100%;
 }
-.sort-div{
-    padding: 1rem;
-}
+
 .close{
     color: var(--baby-pink);
 }
