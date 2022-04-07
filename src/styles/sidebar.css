@@ -17,7 +17,7 @@ aside{
     padding: 0.5rem 1rem;
     margin: 0.5rem;
 }
-.category-div,.rating-div{
+.category-div,.rating-div,.sort-div{
     display: flex;
     flex-direction: column;
 }
@@ -37,9 +37,6 @@ input[type='checkbox'],input[type='radio']{
 /* section */
 section{
     width: 100%;
-}
-.sort-div{
-    padding: 1rem;
 }
 select{
     padding: 4px;
