@@ -12,7 +12,11 @@ function Home() {
                 <img src="https://www.novaeyewear.com/skin/frontend/novacombos/default/images/new-banner2.jpg"
                 loading="lazy"
                 alt="banner" />
-                <Link to='/products'><button className='button primary-btn shop'>Shop now</button></Link>
+                <Link to='/products'>
+                    <button className='button shop'>Shop now
+                    <span className='arrow'> <i class="fas fa-angle-double-right"></i></span>
+                    </button>
+                </Link>
         </div>
         {/* categories */}
         <div className='categories-container heading'>
@@ -45,7 +49,7 @@ function Home() {
                             src={trend.img} 
                             alt="specs" loading="lazy" />
                             <p className="text-sm">{trend.type}</p>
-                            <button className=" btn">Explore</button>
+                            <Link to='/products'><button className=" btn">Explore</button></Link>
                         </div>
                     ))
                 }
