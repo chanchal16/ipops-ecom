@@ -1,14 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { useAuth,useCart,useWishlist } from '../contexts/MainProvider'
 import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler} from '../Utils/cartUtil';
 import emptycart from '../assets/empty-cart.svg';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 function Cart() {
     const{token} = useAuth();
     const{cartState,cartDispatch} = useCart();
-    const {wishlistDispatch,isWishlisted,setIsWishlisted} = useWishlist();
+    const {wishlistDispatch} = useWishlist();
+    const[isWishlisted,setIsWishlisted] = useState(false)
 
     const handleWishlist = (item)=>{
         addToWishlist(token,wishlistDispatch,item)
