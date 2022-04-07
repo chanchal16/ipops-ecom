@@ -2,7 +2,6 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div>
         <footer className="footer">
             <p className="text-md footer-header">made by &nbsp;<span>Chanchal</span></p>
             <div className="socials">
@@ -15,7 +14,6 @@ function Footer() {
             </div>
             <p className="text-xs footer-header">© 2022 &nbsp;<span>ipops</span></p>
         </footer>
-    </div>
   )
 }
 export {Footer}
