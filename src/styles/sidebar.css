@@ -54,3 +54,16 @@ datalist {
     flex-direction: column;
     height: auto;
   }
+  /* media queries */
+  @media only screen and (max-width: 600px) {
+      aside{
+        display: block;
+        position: absolute;
+        width: 100vw;   
+        height: 28vh; 
+        top: 3.8rem; 
+        z-index: 1;
+        /* transition: left 2s ease; */
+        overflow-y: scroll; 
+      }
+  }
