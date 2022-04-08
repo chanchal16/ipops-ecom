@@ -48,3 +48,12 @@ section{
     font-size: 0.57rem ; 
     margin-bottom: 5px;
 }
+/* media queries */
+@media only screen and (max-width: 600px) {
+    .main-container{
+        flex-direction: column;       
+    }
+    .product-list{
+        padding: 8rem 2rem 3rem;
+    }
+}
