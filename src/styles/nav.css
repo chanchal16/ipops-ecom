@@ -36,4 +36,5 @@
 }
 .login:hover{
     background-color: var(--primary-dark);
+    color: white;
 }
