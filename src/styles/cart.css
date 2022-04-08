@@ -67,6 +67,7 @@
 .btn-link{
     margin: 1rem;
     color: var(--primary);
+    cursor: pointer;
 }
 .btn-link:hover{
     color: var(--primary-dark);
@@ -83,17 +84,18 @@
     width: 3rem;
     height: 1.5rem;
     background-color: transparent;
-    border: 1px solid var(--basic);
-    transition: border 0.2s linear;
+    color:var(--primary-dark);
+    border: none;
 }
 .quantity-btns:hover{
-    background-color: var(--default-bg);
+    background-color: var(--primary-light);
 }
 .quantity{
     width: 1.5rem;
     height: 1.5rem;
     text-align: center;
     background-color: var(--default-bg);
+    /* border: 1px solid var(--basic); */
 }
 /* ****price details**** */
 .price-details{
