@@ -98,7 +98,7 @@ export const products = [
   },
   {
     _id:uuid(),
-    brandname:'vincent Chase',
+    brandname:'Vincent Chase',
     description:'Gold Full Frame Aviator Computerglasses',
     categoryName:'computerglasses',
     price:1900,
@@ -107,7 +107,7 @@ export const products = [
   },
   {
     _id:uuid(),
-    brandname:'vistazo',
+    brandname:'Vistazo',
     description:'Gold Full Frame Aviator Computerglasses',
     categoryName:'sunglasses',
     price:2200,
