@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import { useAuth,useCart,useWishlist } from '../contexts/MainProvider'
 import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler} from '../Utils/cartUtil';
@@ -9,11 +9,10 @@ function Cart() {
     const{token} = useAuth();
     const{cartState,cartDispatch} = useCart();
     const {wishlistDispatch} = useWishlist();
-    const[isWishlisted,setIsWishlisted] = useState(false)
 
-    const handleWishlist = (item)=>{
+    const moveToWishlist = (item)=>{
         addToWishlist(token,wishlistDispatch,item)
-        setIsWishlisted(!isWishlisted)
+        removeFromCart(token,cartDispatch,item)
     }
      
   return (
@@ -40,12 +39,10 @@ function Cart() {
                                 <h3 className="card-title">{item.name}</h3>
                                 <p className="gray card-sub-title">Eyeglasses</p>
                                 <p className="gray card-sub-title"><strong>₹{item.price}</strong></p>
-                                <div className="btns">                          
-                                   {isWishlisted ? <a className="link-secondary btn-link">wishlisted</a>
-                                    :<a className="link-secondary btn-link" onClick={()=>handleWishlist(item)}>
-                                        add to wishlist
-                                    </a>
-                                    } 
+                                <div className="btns">                            
+                                    <a className=" btn-link" onClick={()=>moveToWishlist(item)}>
+                                        move to wishlist
+                                    </a>   
                                     <a className="link-secondary" onClick={()=>removeFromCart(token,cartDispatch,item)}>Remove</a>
                                 </div>
                                 <div className="count-div">
