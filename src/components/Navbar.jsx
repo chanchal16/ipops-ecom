@@ -46,7 +46,6 @@ function Navbar() {
                     </li>
                     {user? (
                         <li className="list-items acount">
-                            {/* <i className="far fa-user-circle fa-2x"></i> */}
                             <button className='button login' onClick={handleLogout}>logout</button>
                         </li>
                         ):(

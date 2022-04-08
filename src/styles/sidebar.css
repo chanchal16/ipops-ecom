@@ -63,7 +63,6 @@ datalist {
         height: 28vh; 
         top: 3.8rem; 
         z-index: 1;
-        /* transition: left 2s ease; */
         overflow-y: scroll; 
       }
   }
