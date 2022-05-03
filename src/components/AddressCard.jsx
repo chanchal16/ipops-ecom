@@ -30,7 +30,8 @@ export function AddressCard({address}) {
                 type="radio"
                 name="address"
                 checked={address.addressId === selectedAddress}
-                onChange={()=>selectAddressHandler(address.addressId)} />
+                onChange={()=>selectAddressHandler(address.addressId)} 
+            />
             <span className='text-sm'>{address.name} ,{address.phone}</span>
             <p className='text-sm'>street:{address.street}</p>
             <p className='text-sm'>{address.city} - {address.pincode}</p>
