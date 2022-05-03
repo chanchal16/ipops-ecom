@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // add to cart
 // @params - token stored in localstorage
@@ -12,7 +13,11 @@ const addToCart = async (token,cartDispatch,product)=>{
             authorization: token
         }},)
         cartDispatch({type:'ADD_TO_CART',payload:product})
-        }catch(err) { console.log(err)};
+        toast.success('Item added to cart')
+        }catch(err) { 
+            console.log(err)
+            toast.error("Can't add item to cart" )
+        };
     }          
 }
 
@@ -28,7 +33,11 @@ const removeFromCart = async(token,cartDispatch,productId)=>{
         }}
         );
         cartDispatch({type:'REMOVE_FROM_CART',payload:productId})
+        toast.success('Item removed from cart')
     }
-    catch(err){console.log('error occured while removing item',err)}
+    catch(err){
+        console.log('error occured while removing item',err);
+        toast.error("Can't remove item from cart")
+    }
 }
 export {addToCart,removeFromCart}

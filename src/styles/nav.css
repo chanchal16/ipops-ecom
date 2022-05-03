@@ -1,14 +1,14 @@
 .navbars{
-    background-color: var(--light);
+    background-color: var(--secondary);
 }
 .brand-name,.icon-links,.acount{
     font-family: var(--font);
-    color: var(--primary-dark);
+    color: var(--primary);
 }
 .brand-name:hover,
 .list-items a:hover,
 .acount:hover{
-    color: var(--primary);
+    color: var(--primary-dark);
 }
 .menu-icon{
     padding: 0;
@@ -31,8 +31,10 @@
 }
 /* login btn */
 .login{
-    background-color: var(--primary-dark);
+    background-color: var(--primary);
+    color: var(--secondary);
 }
 .login:hover{
-    background-color: var(--primary);
+    background-color: var(--primary-dark);
+    color: white;
 }

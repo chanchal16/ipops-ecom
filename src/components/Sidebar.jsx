@@ -3,7 +3,7 @@ import { useFilter } from '../contexts/filterContext'
 
 function Sidebar() {
     const {filterState, filterDispatch} = useFilter()
-    const{category} = filterState
+    const{category,sortBy,price} = filterState
     
   return (
     <div>
@@ -27,12 +27,32 @@ function Sidebar() {
                         step="500"
                         min="700"
                         max="3000"
-                        value={filterState.price}
+                        value={price}
                         onChange={(e) =>
                             filterDispatch({ type: "PRICE", payload: e.target.value })
                         }
                         
                         />
+                    </div>
+                </div>
+                {/* sort */}
+                <div className='filters'>
+                    <p className="text-md">Sort BY</p>
+                    <div className="sort-div">
+                        <label className="text-sm accent"><input
+                            type="radio"
+                            name="radiobtn"
+                            checked={sortBy === "LOW_TO_HIGH"}
+                            onChange={() => filterDispatch({ type: "LOW_TO_HIGH" })}
+                            />
+                        low to high</label>
+                        <label className="text-sm accent"> <input
+                            type="radio"
+                            name="radiobtn"
+                            checked={sortBy === "HIGH_TO_LOW"}
+                            onChange={() => filterDispatch({ type: "HIGH_TO_LOW" })}
+                            />
+                        high to low</label>
                     </div>
                 </div>
                 {/* ---categories-- */}

@@ -17,7 +17,7 @@ aside{
     padding: 0.5rem 1rem;
     margin: 0.5rem;
 }
-.category-div,.rating-div{
+.category-div,.rating-div,.sort-div{
     display: flex;
     flex-direction: column;
 }
@@ -38,9 +38,6 @@ input[type='checkbox'],input[type='radio']{
 section{
     width: 100%;
 }
-.sort-div{
-    padding: 1rem;
-}
 select{
     padding: 4px;
     outline: none;
@@ -56,4 +53,16 @@ datalist {
   .slider-container {
     flex-direction: column;
     height: auto;
+  }
+  /* media queries */
+  @media only screen and (max-width: 600px) {
+      aside{
+        display: block;
+        position: absolute;
+        width: 100vw;   
+        height: 28vh; 
+        top: 3.8rem; 
+        z-index: 1;
+        overflow-y: scroll; 
+      }
   }

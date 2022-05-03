@@ -2,13 +2,14 @@ import React,{useState} from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
+
 function Login() {
   const navigate = useNavigate()
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
   });
-  const {LoginHandler,token } = useAuth();
+  const {LoginHandler} = useAuth();
  
   const handleSubmit = async(e)=>{
     e.preventDefault()
@@ -16,7 +17,6 @@ function Login() {
     navigate('/products')  
   }
 
-  console.log('token',token)
   const HandleLogin=() =>{
     setLoginForm((form)=>({
       ...form,

@@ -86,5 +86,32 @@ export const products = [
     price:1800,
     img:'https://cdn.eyemyeye.com/shared/images/products/S66B2142/S66B2142-1-hd.jpg',
     rating:4.2
+  },
+  {
+    _id:uuid(),
+    brandname:'Nerdlane',
+    description:'Silver Rimless Rectangle Eyeglasses',
+    categoryName:'eyeglasses',
+    price:850,
+    img:'https://cdn.eyemyeye.com/shared/images/products/E17B0322/E17B0322-1.jpg',
+    rating:2.5
+  },
+  {
+    _id:uuid(),
+    brandname:'Vincent Chase',
+    description:'Gold Full Frame Aviator Computerglasses',
+    categoryName:'computerglasses',
+    price:1900,
+    img:'https://cdn.eyemyeye.com/shared/images/products/E25C3206/E25C3206-1-hd.jpg',
+    rating:3.5
+  },
+  {
+    _id:uuid(),
+    brandname:'Vistazo',
+    description:'Gold Full Frame Aviator Computerglasses',
+    categoryName:'sunglasses',
+    price:2200,
+    img:'https://cdn.eyemyeye.com/shared/images/products/S67A2091/S67A2091-1-hd.jpg',
+    rating:3.8
   }
 ];

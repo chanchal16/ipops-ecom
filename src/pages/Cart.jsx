@@ -1,20 +1,26 @@
 import React from 'react';
-import { useAuth,useCart,useWishlist } from '../contexts/MainProvider'
+import { useAuth,useCart,useWishlist} from '../contexts/MainProvider'
 import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler} from '../Utils/cartUtil';
 import emptycart from '../assets/empty-cart.svg';
 import {Link} from 'react-router-dom'
 
+
 function Cart() {
     const{token} = useAuth();
     const{cartState,cartDispatch} = useCart();
-    const {wishlistDispatch,isWishlisted,setIsWishlisted} = useWishlist();
+    const {wishlistDispatch} = useWishlist();
+    const {addressState} = useAddress();
+    const{addressList,selectedAddress} = addressState;
 
-    const handleWishlist = (item)=>{
+    // current address
+    const currentAddress = addressList.find(address=>address.addressId === selectedAddress)
+
+    const moveToWishlist = (item)=>{
         addToWishlist(token,wishlistDispatch,item)
-        setIsWishlisted(!isWishlisted)
+        removeFromCart(token,cartDispatch,item)
     }
-     
+    
   return (
     <div className='cart-section'>
         {cartState.cart?.length>0 ? (
@@ -23,9 +29,20 @@ function Cart() {
                 <div className="items-div">
                     <div className="cart-info">
                         <h6 className="h6">My Cart({cartState.totalItems})</h6>
-                        <span className="text-md">Deliver to:
-                            <input type="text" value="Aurangabad 431001" className="address" onChange={()=>{}} />
-                        </span>
+                        <div className='address-box'>
+                            {currentAddress?.name ?
+                                (
+                                    <>
+                                    <span className="text-md">Deliver to: {currentAddress?.name}</span>
+                                    <p>{currentAddress?.city} ,{currentAddress?.state}</p> </>
+                                ):(
+                                    <p>No address selected</p>
+                                )
+                            }                      
+                        </div>
+                        <Link to='/address'>
+                            <button className='btn new-btn'>change address</button>
+                        </Link>
                     </div>
                     <div className='card-container'>
                     { cartState.cart?.map(item=>(
@@ -39,12 +56,10 @@ function Cart() {
                                 <h3 className="card-title">{item.name}</h3>
                                 <p className="gray card-sub-title">Eyeglasses</p>
                                 <p className="gray card-sub-title"><strong>₹{item.price}</strong></p>
-                                <div className="btns">                          
-                                   {isWishlisted ? <a className="link-secondary btn-link">wishlisted</a>
-                                    :<a className="link-secondary btn-link" onClick={()=>handleWishlist(item)}>
-                                        add to wishlist
-                                    </a>
-                                    } 
+                                <div className="btns">                            
+                                    <a className=" btn-link" onClick={()=>moveToWishlist(item)}>
+                                        move to wishlist
+                                    </a>   
                                     <a className="link-secondary" onClick={()=>removeFromCart(token,cartDispatch,item)}>Remove</a>
                                 </div>
                                 <div className="count-div">

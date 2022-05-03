@@ -30,22 +30,7 @@ function Products() {
     <div className="main-container">
         <Sidebar/>
         <section>
-            <div className="sort-div">
-                <input
-                type="radio"
-                name="radiobtn"
-                checked={sortBy === "LOW_TO_HIGH"}
-                onChange={() => filterDispatch({ type: "LOW_TO_HIGH" })}
-                />
-                <label>low to high</label>
-                <input
-                type="radio"
-                name="radiobtn"
-                checked={sortBy === "HIGH_TO_LOW"}
-                onChange={() => filterDispatch({ type: "HIGH_TO_LOW" })}
-                />
-                <label>high to low</label>
-            </div>
+            <h5 className='text-lg total-prod'>Showing {filteredProducts.length} items</h5>
             {/* <!---product list----> */}
             <div className='product-list'>
             {

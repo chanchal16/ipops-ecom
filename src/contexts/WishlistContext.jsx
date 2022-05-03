@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React,{useState,useEffect,createContext,useContext,useReducer} from 'react'
+import React,{useEffect,createContext,useContext,useReducer} from 'react'
 import { wishlistReducer } from '../reducers/wishlistReducer';
 import { useAuth } from './AuthContext';
 
@@ -8,7 +8,6 @@ const wishlistContext = createContext()
  function WishlistContextProvider({children}) {
   const [wishlistState, wishlistDispatch] = useReducer(wishlistReducer, {wishlist:[]});
   const {token} = useAuth();
-  const [isWishlisted,setIsWishlisted] = useState(false)
 
   useEffect(() => {
     async()=>{
@@ -25,7 +24,7 @@ const wishlistContext = createContext()
     }
   }, [token])
      
-  const providerItem = {wishlistState,wishlistDispatch,isWishlisted,setIsWishlisted}
+  const providerItem = {wishlistState,wishlistDispatch}
   return (
     <div>
         <wishlistContext.Provider value={providerItem}>

@@ -1,3 +1,7 @@
+.total-prod{
+    padding: 1rem;
+    color: var(--secondary);
+}
 .product-list{
     padding: 2rem;
     margin-bottom: 1rem;
@@ -31,9 +35,7 @@
 section{
     width: 100%;
 }
-.sort-div{
-    padding: 1rem;
-}
+
 .close{
     color: var(--baby-pink);
 }
@@ -45,4 +47,13 @@ section{
 .badge-star .fa-xs{
     font-size: 0.57rem ; 
     margin-bottom: 5px;
+}
+/* media queries */
+@media only screen and (max-width: 600px) {
+    .main-container{
+        flex-direction: column;       
+    }
+    .product-list{
+        padding: 8rem 2rem 3rem;
+    }
 }
