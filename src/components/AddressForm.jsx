@@ -1,9 +1,9 @@
 import React,{useState,useEffect} from 'react';
 import { useAddress,useAuth } from '../contexts/MainProvider';
-import { addAddress,updateAddress} from '../services/addressServices';
+import { addAddress} from '../services/addressServices';
 import '../styles/address.css';
 import { users } from '../backend/db/users';
-
+import { toast } from "react-toastify";
 
 export function AddressForm() {  
     const {token} = useAuth()
@@ -35,9 +35,8 @@ export function AddressForm() {
         setEdit(null)
         setForm(defaultAddress);
         setIsModalOpen(false)
-
         }else{
-            console.log('form',form)
+            toast.warn('please fill the fields')
         }
     }
     // reset form on cancel
