@@ -28,6 +28,13 @@ main{
 .main-container{
   display: flex;
 }
+/* accent btn */
+.accent-btn{
+  background-color: var(--accent);
+}
+.accent-btn:hover{
+  background-color: var(--accent-dark);
+}
 /* ****banner**** */
 .banner{
   background-color: var(--light);

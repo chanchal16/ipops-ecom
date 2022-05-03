@@ -1,6 +1,5 @@
 .cart-section{
     background-color: var(--default-bg);
-
 }
 .cart-container{
     display: flex;
@@ -9,6 +8,10 @@
 .cart-items{
     padding: 3rem;
     width: 60%;
+}
+/* address box */
+.address-box{
+    padding: 1rem;
 }
 /* *** cart info*** */
 .items-div{

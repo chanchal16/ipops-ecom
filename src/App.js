@@ -1,10 +1,10 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import {Navbar,Footer} from "./components/main-component";
+import {Navbar,Footer,AddressForm,AddressList} from "./components";
 import {Login,Products,Signup,Wishlist,Cart,Home,PageNotFound} from "./pages/main";
 import Mockman from 'mockman-js';
 import { ToastContainer } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -19,9 +19,11 @@ function App() {
           <Route path="products" element={<Products/>}/>
           <Route path="wishlist" element={<Wishlist/>}/>
           <Route path="cart" element={<Cart/>}/> 
+          <Route path="address" element={<AddressList/>}/>
           <Route path="*" element={<PageNotFound/>}/>
           <Route path="mock" element={<Mockman />} />
         </Routes>
+        <AddressForm/> 
       </main>
       <Footer />
     </div>
