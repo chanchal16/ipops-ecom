@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.summary-container{
+  padding: 2rem;
+}
+.summary-container h1{
+  color: var(--success);
+}
+.summary-container button{
+  margin: 0 42%;
+}
+.order{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin: 1rem;
+}
+.order-details{
+  padding: 1rem;
+  margin: 1rem;
+}
+.product-card{
+  display: flex;
+  width: 350px;
+  border: 1.2px solid var(--primary);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: none;
+  margin: 2rem;
+}
+.product-card:hover{
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);;
+}
