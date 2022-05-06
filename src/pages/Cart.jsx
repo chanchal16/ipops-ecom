@@ -4,7 +4,7 @@ import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler} from '../Utils/cartUtil';
 import emptycart from '../assets/empty-cart.svg';
 import {Link} from 'react-router-dom';
-
+import { Checkout } from './Checkout';
 
 function Cart() {
     const{token} = useAuth();
@@ -98,8 +98,11 @@ function Cart() {
                         </div>
                     </div>
                     <div className="details-footer">
-                        <button className="btn order">checkout</button>
-                    </div>
+                        <Checkout/>
+                    </div>                  
+                </div>
+                <div className='note'>
+                    <p className='text-xs'>Use credit card as mode of payment and (4111 1111 1111 1111) as card number.</p>
                 </div>
             </div>
         </div>)
