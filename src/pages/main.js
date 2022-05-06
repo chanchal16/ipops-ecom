@@ -4,4 +4,6 @@ export {Signup} from './Signup';
 export {Products} from './Products';
 export {Wishlist} from './Wishlist';
 export {Cart} from './Cart';
+export {Checkout} from './Checkout';
+export {OrderSummary} from './OrderSummary';
 export {PageNotFound} from './PageNotFound'
