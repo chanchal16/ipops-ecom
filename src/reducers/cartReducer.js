@@ -39,6 +39,8 @@ const cartReducer = (state,action)=>{
                 totalPrice:0,
                 totalItems:0
             }
+        case 'SET_ORDER':
+            return{...state,orders:state.orders.concat(action.payload)}
     }
 }
 export{cartReducer}
