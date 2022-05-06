@@ -1,11 +1,12 @@
 import React,{createContext,useContext,useReducer,useEffect} from 'react'
 import { cartReducer } from '../reducers/cartReducer';
+import { getOrder } from '../services/orderServices';
 import { useAuth } from './AuthContext';
 
 const cartContext = createContext();
 
 function CartContextProvider({children}) {
-  const[cartState,cartDispatch]= useReducer(cartReducer,{cart:[],totalPrice:0,totalItems:0})
+  const[cartState,cartDispatch]= useReducer(cartReducer,{cart:[],totalPrice:0,totalItems:0,orders:[]})
   const {token} = useAuth();
 
   useEffect(() => {
@@ -21,6 +22,8 @@ function CartContextProvider({children}) {
         console.log('error while displaying cart items',err)
       }
     }
+    // get orders
+    getOrder(token,cartDispatch)
   }, [token])
 
   return (
