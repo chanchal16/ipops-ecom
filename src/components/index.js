@@ -1,5 +1,6 @@
 export {Navbar} from './Navbar';
 export {Sidebar} from './Sidebar';
+export {RequireAuth} from './RequireAuth';
 export {ProductCard} from './ProductCard';
 export {AddressForm} from './AddressForm';
 export {AddressCard} from './AddressCard';
