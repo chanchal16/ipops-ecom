@@ -6,6 +6,7 @@ import { useFilter } from '../contexts/filterContext';
 
 function Home() {
     const {filterDispatch} = useFilter()
+
   return (
     <div>
         <div className="banner">
@@ -26,8 +27,8 @@ function Home() {
             <div className='categories'>
                 {
                     categories.map(category=>(
-                        <Link to='/products'>
-                        <div className='category' key={category._id} 
+                        <Link to='/products' key={category._id}>
+                        <div className='category'  
                         value={category.categoryName} onClick={(e)=>filterDispatch({type:'CATEGORY',payload:category.categoryName})}>
                             <img className='res-image' src={category.img} alt='category' />
                             <p className='text-sm'>{category.categoryName.toUpperCase()}</p>
@@ -59,7 +60,7 @@ function Home() {
         <div className='services-container'>
             {
                 services.map(service=>(
-                    <div className='service'>
+                    <div className='service' key={service.id}>
                         <img src={service.img} alt='service' />
                         <span className='text-sm'>{service.service}</span>
                     </div>
