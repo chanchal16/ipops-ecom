@@ -1,20 +1,19 @@
 import React,{useState} from 'react'
-import {Link,useNavigate} from 'react-router-dom'
+import {Link,useLocation,Navigate} from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext';
 
-
 function Login() {
-  const navigate = useNavigate()
+  let location = useLocation();
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
   });
-  const {LoginHandler} = useAuth();
- 
+  const {LoginHandler,user} = useAuth();
+  let from = location.state?.from?.pathname || "/";
+  
   const handleSubmit = async(e)=>{
     e.preventDefault()
-    await LoginHandler(loginForm.email, loginForm.password); 
-    navigate('/products')  
+    await LoginHandler(loginForm.email, loginForm.password);   
   }
 
   const HandleLogin=() =>{
@@ -23,6 +22,9 @@ function Login() {
       email: "testing@test.com",
       password: "test123",
     }));
+  }
+  if (user) {
+    return <Navigate to={from || "/"} replace />;
   }
   return (
     <div>
