@@ -79,3 +79,30 @@
     border: 1px solid var(--secondary);
     padding: 1rem;
 }
+
+/* media queries */
+@media only screen and (max-width: 768px) {
+    .new-btn{
+        width: auto;
+    }
+    .note{
+        margin: 0;
+        width: auto;
+    }
+    .address-form{
+        width: 317px;
+    }
+    .d-flex{
+        flex-direction: column;
+    }
+    .street{
+        width: 80%;
+    }
+    .form-btns{
+        margin: 0;
+    }
+    .form-btns .accent-btn{
+        margin: 0 0.5rem 0.5rem;
+    }
+    
+}

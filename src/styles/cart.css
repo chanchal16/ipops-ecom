@@ -186,6 +186,9 @@
     .quantity-btns{
         width: 2rem;
     }
+    .total-price{
+        width: 100%;
+    }
 }
 @media only screen and (max-width: 850px) and (min-width:700px){
     .cart-items{
@@ -194,5 +197,21 @@
     }
     .price-details{
         margin: auto;
+    }
+}
+@media screen and (width:912px){
+    .cart-container{
+        justify-content: center;
+    }
+    .price-details, .note{
+        margin: auto;
+    }
+}
+@media screen and (width:1024px){
+    .cart-container{
+        flex-wrap: nowrap;
+    }
+    .cart-items{
+        padding: 3rem 1rem;
     }
 }

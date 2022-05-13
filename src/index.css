@@ -42,3 +42,15 @@ code {
 .product-card:hover{
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);;
 }
+
+/* media queries */
+@media only screen and (max-width: 768px) {
+  .order{
+    flex-direction: column;
+    margin: 0;
+  }
+  .product-card{
+    width: 18rem;
+    margin: 0;
+  }
+}
