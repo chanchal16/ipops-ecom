@@ -46,7 +46,7 @@ function Login() {
                 <div>
                     <input type="checkbox" /> <label> Remember me</label> 
                 </div>
-                <p>Don't have an account ?<Link to='signup' className="primary-text"> SignUp</Link></p>
+                <p>Don't have an account ?<Link to='/signup' className="primary-text"> SignUp</Link></p>
             </form>
         </div>
     </div>
