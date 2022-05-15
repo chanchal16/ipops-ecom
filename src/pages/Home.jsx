@@ -15,7 +15,7 @@ function Home() {
                 alt="banner" />
                 <Link to='/products'>
                     <button className='button shop'>Shop now
-                    <span className='arrow'> <i class="fas fa-angle-double-right"></i></span>
+                    <span className='arrow'> <i className="fas fa-angle-double-right"></i></span>
                     </button>
                 </Link>
         </div>

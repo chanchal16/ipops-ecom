@@ -50,7 +50,7 @@ function Navbar() {
                         </li>
                         ):(
                            <Link to='login'>
-                               <button class="login button">Login</button>
+                               <button className="login button">Login</button>
                             </Link>
                         )
                     }
