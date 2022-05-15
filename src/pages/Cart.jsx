@@ -63,9 +63,13 @@ function Cart() {
                                     <a className="link-secondary" onClick={()=>removeFromCart(token,cartDispatch,item)}>Remove</a>
                                 </div>
                                 <div className="count-div">
-                                    <button className="quantity-btns" onClick={()=>decreaseQtyHandler(cartDispatch,item)}>-</button>
+                                    <button className="quantity-btns" onClick={()=>decreaseQtyHandler(cartDispatch,item)}>
+                                        <i className="fas fa-minus"></i>
+                                    </button>
                                     <div className='quantity'>{item.qty} </div>
-                                    <button className="quantity-btns" onClick={()=>cartDispatch({type:'INCREASE_QTY',payload:item})}>+</button>
+                                    <button className="quantity-btns" onClick={()=>cartDispatch({type:'INCREASE_QTY',payload:item})}>
+                                        <i className="fas fa-plus"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
