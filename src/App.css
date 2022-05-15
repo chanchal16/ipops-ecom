@@ -96,6 +96,9 @@ main{
 .category{
   width: 250px;
 }
+.category:hover{
+  color: var(--primary);
+}
 /* category heading */
 .line{
   display:block;
