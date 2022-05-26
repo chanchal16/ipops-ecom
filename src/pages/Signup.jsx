@@ -39,7 +39,7 @@ function Signup() {
                     value={signUpForm.password} onChange={(e)=>setSignUpForm((f)=>({...f,password:e.target.value}))} />
                 </div>
                 <button type='submit' className="button primary-btn" onClick={handleSignUp}>Sign Up</button>
-                <p>Already have an account ?<Link to='/' className="primary-text">Sign in</Link></p>
+                <p>Already have an account ?<Link to='/login' className="primary-text">Sign in</Link></p>
             </form>
         </div>
     </div>

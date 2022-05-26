@@ -15,6 +15,15 @@ https://user-images.githubusercontent.com/56486295/162398094-f088d3b5-2c13-4de6-
 - Remove from cart
 - Authentication
 
+## New Updates
+- Address management
+- Payment integration
+
+## Tech Stack
+- React
+- [Breeze.css](https://breezecss.netlify.app/) Component Library
+- React router
+
 ## Run the app locally
 
 1. Clone the repo

@@ -28,6 +28,13 @@ main{
 .main-container{
   display: flex;
 }
+/* accent btn */
+.accent-btn{
+  background-color: var(--accent);
+}
+.accent-btn:hover{
+  background-color: var(--accent-dark);
+}
 /* ****banner**** */
 .banner{
   background-color: var(--light);
@@ -88,6 +95,9 @@ main{
 }
 .category{
   width: 250px;
+}
+.category:hover{
+  color: var(--primary);
 }
 /* category heading */
 .line{
@@ -169,6 +179,12 @@ main{
   .services-container{
     flex-direction: column;
     gap: 1rem;
+  }
+  .shop{
+    bottom: 2rem;
+    margin-left: 8rem;
+    font-size: 0.5rem;
+    margin-right: 0;
   }
 }
 

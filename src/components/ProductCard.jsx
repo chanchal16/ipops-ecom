@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import {useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 import { addToWishlist,removeFromWishlist,addToCart } from '../services';
 import { ItemExists } from '../Utils/itemExists';
@@ -7,10 +7,10 @@ import { toast } from "react-toastify";
 
 function ProductCard({product}) { 
     const{token,user} = useAuth();
+    const navigate = useNavigate();
     const {cartState,cartDispatch} = useCart()
     const {wishlistState,wishlistDispatch} = useWishlist()
-    const navigate = useNavigate();
-    const[isWishlisted,setIsWishlisted] = useState()
+    const[isWishlisted,setIsWishlisted] = useState();
 
     // check for wishlisted items
     useEffect(() => {
