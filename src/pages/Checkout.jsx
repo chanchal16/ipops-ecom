@@ -4,26 +4,25 @@ import { useCart,useAddress,useAuth } from '../contexts/MainProvider';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuid } from "uuid"
 
-export function Checkout() {
+export function Checkout({finalPrice}) {
     const navigate = useNavigate()
     const[showtoolTip,setShowToolTip] = useState(false)
-
     const{token} = useAuth()
     const {cartState,cartDispatch} = useCart();
-    const{cart,totalPrice} = cartState
+    const{cart} = cartState
     const{addressState} = useAddress();
     const{addressList,selectedAddress} = addressState
 
     const options = {
         key: 'rzp_test_wIhriYcfd7FT7a',
-        amount: totalPrice * 100, 
+        amount: finalPrice * 100, 
         currency: "INR",
         name: 'Ipops-Eyewear',
         description: 'Test Transaction',
         handler: async function(response) {
             const order_id=uuid()
             const order= {
-                totalPrice,
+                finalPrice,
                 products:[...cart],
                 order_id,
                 razorpayPaymentId: response.razorpay_payment_id,
@@ -31,6 +30,7 @@ export function Checkout() {
             }
             await addOrder(token,cartDispatch,order);
             navigate('/order-summary');
+            cartDispatch({type:'RESET_COUPON'})
         },
         prefill: {
             name: 'tester',
