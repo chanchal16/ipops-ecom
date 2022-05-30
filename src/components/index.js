@@ -5,5 +5,6 @@ export {ProductCard} from './ProductCard';
 export {AddressForm} from './AddressForm';
 export {AddressCard} from './AddressCard';
 export {AddressList} from  './AddressList';
+export {Coupon} from './Coupon';
 export {Spinner} from './Spinner'
 export {Footer} from './Footer'
