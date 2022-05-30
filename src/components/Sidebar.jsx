@@ -13,7 +13,7 @@ function Sidebar() {
                 <a className='button link' onClick={(e)=>filterDispatch({type:'CLEAR'})}>CLEAR</a>
                 <div className="filters">
                     <p className="text-md">Price</p>
-                    <div class="slider-container">
+                    <div className="slider-container">
                         <datalist id="tickmarks">
                         <option value="700" label="500"></option>
                         <option value="2000" label="1k"></option>
