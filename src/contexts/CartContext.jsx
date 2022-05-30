@@ -1,13 +1,22 @@
-import React,{createContext,useContext,useReducer,useEffect} from 'react'
+import React,{createContext,useContext,useReducer,useEffect,useState} from 'react'
 import { cartReducer } from '../reducers/cartReducer';
 import { getOrder } from '../services/orderServices';
+import { couponDiscountHandler } from '../Utils/cartUtil';
 import { useAuth } from './AuthContext';
 
 const cartContext = createContext();
-
+const initialState = {
+  cart:[],
+  totalPrice:0,
+  totalItems:0,
+  orders:[],
+  selectedCoupon:''
+}
 function CartContextProvider({children}) {
-  const[cartState,cartDispatch]= useReducer(cartReducer,{cart:[],totalPrice:0,totalItems:0,orders:[]})
+  const[isCouponModalOpen,setCouponModalOpen] = useState(false)
+  const[cartState,cartDispatch]= useReducer(cartReducer,initialState)
   const {token} = useAuth();
+  const priceAfterCouponApplied = couponDiscountHandler(initialState?.selectedCoupon,initialState?.totalPrice)
 
   useEffect(() => {
     async()=>{
@@ -26,9 +35,10 @@ function CartContextProvider({children}) {
     getOrder(token,cartDispatch)
   }, [token])
 
+  const providerObj = {cartState,cartDispatch,isCouponModalOpen,setCouponModalOpen,priceAfterCouponApplied}
   return (
     <div>
-        <cartContext.Provider value={{cartState,cartDispatch}}>
+        <cartContext.Provider value={providerObj}>
             {children}
         </cartContext.Provider>
     </div>
