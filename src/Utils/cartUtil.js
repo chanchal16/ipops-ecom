@@ -5,4 +5,11 @@ const decreaseQtyHandler = (cartDispatch,product)=>{
         cartDispatch({type:'DECREASE_QTY',payload:product})
     }
 }
-export {decreaseQtyHandler}
+
+const couponDiscountHandler = (coupon,totalPrice)=>{
+    if(coupon){
+      return  coupon === 'TRYNEW' ? totalPrice - 500 : totalPrice - totalPrice * 0.5
+    }
+    return totalPrice
+}
+export {decreaseQtyHandler,couponDiscountHandler}
