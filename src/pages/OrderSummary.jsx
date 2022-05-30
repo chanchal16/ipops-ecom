@@ -4,7 +4,7 @@ import { useCart } from '../contexts/CartContext'
 
 export function OrderSummary() {
   const {cartState} = useCart()
-  const{orders} = cartState
+  const{orders,priceAfterCouponApplied} = cartState
 
   return (
     <div className='summary-container'>
@@ -12,11 +12,12 @@ export function OrderSummary() {
         <div>
           {
             orders?.map(order=>(
+              
               <div key={order.order_id} className='order'>
                 <div className='order-details'>
                   <h6 className='text-lg bold'>Order ID: {order.order_id}</h6>
                   <h6 className='text-md bold'>Placed on: {order.createdAt.substring(0,10)}</h6>
-                  <p className='text-md bold'>Amount Paid: ₹{order.totalPrice}</p>
+                  <p className='text-md bold'>Amount Paid: ₹{order.finalPrice}</p>
                   <div className='address'>
                     <p className='text-sm'>Deliver to: {order.address.name}</p>
                     <p className='text-sm'>{order.address.street}</p>
