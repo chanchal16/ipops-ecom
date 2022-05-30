@@ -46,38 +46,38 @@ function ProductCard({product}) {
     }
   return (
     <div>
-        <div class="card" key={product._id}>
-            <div class="card-media">
-                <img class="vc-image" 
+        <div className="card" key={product._id}>
+            <div className="card-media">
+                <img className="vc-image" 
                 src={product.img} 
                 alt="specs" loading="lazy" />
-                <span class="gray close " onClick={()=>wishlistHandler(product)}>
+                <span className="gray close " onClick={()=>wishlistHandler(product)}>
                     {isWishlisted ?<i className="fas fa-heart fa-lg"></i>
                     : <i className="far fa-heart fa-lg"></i>}
                 </span>
             </div>
-            <div class="card-content">
-                <div class="content-title">
+            <div className="card-content">
+                <div className="content-title">
                     <h4>{product.brandname}</h4>
-                    <div class="badge-rating">
-                        <span class="text-xs">{product.rating}</span>
-                        <span class="badge-star"><i class="fas fa-star fa-xs"></i></span>
+                    <div className="badge-rating">
+                        <span className="text-xs">{product.rating}</span>
+                        <span className="badge-star"><i className="fas fa-star fa-xs"></i></span>
                     </div>  
                 </div>
-                <div class="desc">
-                    <p class="desc-title">{product.categoryName}</p>
+                <div className="desc">
+                    <p className="desc-title">{product.categoryName}</p>
                     <p><strong>₹{product.price}</strong></p>
                 </div>
-                <div class="action-btns">
+                <div className="action-btns">
                 {ItemExists(cartState.cart,product.id) ?
                     <Link to='/cart'>
-                        <button class="btn go-to-cart" >
-                            <i class="fas fa-shopping-cart"></i> Go to cart
+                        <button className="btn go-to-cart" >
+                            <i className="fas fa-shopping-cart"></i> Go to cart
                         </button>
                     </Link>                  
                     : 
-                    <button class="btn" onClick={()=>cartHandler(product)}>
-                        <i class="fas fa-shopping-cart"></i> Add to cart
+                    <button className="btn" onClick={()=>cartHandler(product)}>
+                        <i className="fas fa-shopping-cart"></i> Add to cart
                     </button>
                 }
                 </div>
