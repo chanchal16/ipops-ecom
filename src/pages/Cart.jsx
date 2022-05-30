@@ -1,24 +1,34 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useAuth,useCart,useWishlist,useAddress} from '../contexts/MainProvider'
 import { removeFromCart,addToWishlist } from '../services';
-import {decreaseQtyHandler} from '../Utils/cartUtil';
+import {decreaseQtyHandler,couponDiscountHandler} from '../Utils/cartUtil';
 import emptycart from '../assets/empty-cart.svg';
 import {Link} from 'react-router-dom';
 import { Checkout } from './Checkout';
+import { Coupon } from '../components';
 
 function Cart() {
     const{token} = useAuth();
-    const{cartState,cartDispatch} = useCart();
+    const{cartState,cartDispatch,setCouponModalOpen} = useCart();
+    const {totalPrice,selectedCoupon} = cartState
     const {wishlistDispatch} = useWishlist();
-    const {addressState} = useAddress();
+    const {addressState,setIsModalOpen} = useAddress();
     const{addressList,selectedAddress} = addressState;
 
     // current address
     const currentAddress = addressList.find(address=>address.addressId === selectedAddress)
 
+    // price after cuopon applied
+    const priceAfterCouponApplied =  couponDiscountHandler(selectedCoupon,totalPrice)
+
     const moveToWishlist = (item)=>{
         addToWishlist(token,wishlistDispatch,item)
         removeFromCart(token,cartDispatch,item)
+        cartDispatch({type:'RESET_COUPON'})
+    }
+    const removeProduct = (item)=>{
+        removeFromCart(token,cartDispatch,item)
+        cartDispatch({type:'RESET_COUPON'})
     }
     
   return (
@@ -60,7 +70,7 @@ function Cart() {
                                     <a className=" btn-link" onClick={()=>moveToWishlist(item)}>
                                         move to wishlist
                                     </a>   
-                                    <a className="link-secondary" onClick={()=>removeFromCart(token,cartDispatch,item)}>Remove</a>
+                                    <a className="link-secondary" onClick={()=>removeProduct(item)}>Remove</a>
                                 </div>
                                 <div className="count-div">
                                     <button className="quantity-btns" onClick={()=>decreaseQtyHandler(cartDispatch,item)}>
@@ -76,12 +86,17 @@ function Cart() {
                     ))}
                     </div>
                     <div className="cart-items-footer">
-                        <p className='text-sm bold'>Total:₹{cartState.totalPrice}</p>
+                        <p className='text-sm bold'>Total:₹{priceAfterCouponApplied}</p>
                     </div>
                 </div>
             </div>
+            
             {/* price details */}
             <div className="total-price">
+                <button className='btn coupon' onClick={()=>setCouponModalOpen(true)}>
+                <i class="fas fa-tag"></i> Apply coupon
+                </button>
+                <Coupon finalPrice={priceAfterCouponApplied}/>
                 <div className="price-details">
                     <h6 className="h6">Order Summary</h6>
                     <hr/>
@@ -95,14 +110,24 @@ function Cart() {
                                 </div>
                         )})}                                          
                     </div>
-                    <div className="outer-div">
+                    {selectedCoupon &&
+                        <div className="outer-div">
+                            <div className="cart-total">
+                                <h1 className="text-sm ">{selectedCoupon} </h1>
+                                <span className='gray2-text' onClick={()=>cartDispatch({type:'RESET_COUPON'})}>
+                                    <i className="fas fa-times "></i>
+                                </span>
+                            </div>
+                        </div>
+                    }
+                    <div className="outer-div">                   
                         <div className="cart-total">
                             <h1 className="text-md bold">Total amount </h1>
-                            <p className=" text-md bold">₹{cartState.totalPrice}</p>
-                        </div>
+                            <p className=" text-md bold">₹{priceAfterCouponApplied}</p>
+                        </div>                      
                     </div>
                     <div className="details-footer">
-                        <Checkout/>
+                        <Checkout finalPrice={priceAfterCouponApplied} />
                     </div>                  
                 </div>
                 <div className='note'>
