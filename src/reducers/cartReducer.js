@@ -32,15 +32,21 @@ const cartReducer = (state,action)=>{
                 }),
                 totalPrice:state.totalPrice - parseInt(action.payload.price,10)
             }
+        case 'SET_ORDER':
+            return{...state,orders:state.orders.concat(action.payload)};
+        case 'SELECT_COUPON':
+            return {...state,selectedCoupon:action.payload};
+        case 'RESET_COUPON':
+            return {...state,selectedCoupon:''}
         case 'CLEAR_CART':
             return {
                 ...state,
                 cart:[],
                 totalPrice:0,
-                totalItems:0
-            }
-        case 'SET_ORDER':
-            return{...state,orders:state.orders.concat(action.payload)}
+                totalItems:0,
+                selectedCoupon:''
+            }       
+
     }
 }
 export{cartReducer}
