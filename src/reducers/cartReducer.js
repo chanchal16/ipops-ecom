@@ -46,7 +46,6 @@ const cartReducer = (state,action)=>{
                 totalItems:0,
                 selectedCoupon:''
             }       
-
     }
 }
 export{cartReducer}
