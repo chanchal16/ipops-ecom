@@ -37,7 +37,7 @@ section{
 }
 
 .fav{
-    color: var(--baby-pink);
+    color: var(--baby-pink) !important;
 }
 /* ratings */
 .badge-rating{
