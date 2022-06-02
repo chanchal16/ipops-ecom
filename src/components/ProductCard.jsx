@@ -51,7 +51,7 @@ function ProductCard({product}) {
                 <img className="vc-image" 
                 src={product.img} 
                 alt="specs" loading="lazy" />
-                <span className="gray close " onClick={()=>wishlistHandler(product)}>
+                <span className="fav close " onClick={()=>wishlistHandler(product)}>
                     {isWishlisted ?<i className="fas fa-heart fa-lg"></i>
                     : <i className="far fa-heart fa-lg"></i>}
                 </span>
