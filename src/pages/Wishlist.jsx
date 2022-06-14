@@ -26,7 +26,7 @@ function Wishlist() {
                         <img class="vc-image" 
                         src={wishlistItem.img} 
                         alt="specs" loading="lazy" />
-                        <span class="gray close " onClick={()=> removeFromWishlist(token,wishlistDispatch,wishlistItem._id)}>
+                        <span class="fav close " onClick={()=> removeFromWishlist(token,wishlistDispatch,wishlistItem._id)}>
                             <i className="fas fa-heart fa-lg"></i>
                         </span>
                     </div>
