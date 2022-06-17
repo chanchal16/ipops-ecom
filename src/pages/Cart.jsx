@@ -56,7 +56,7 @@ function Cart() {
                     </div>
                     <div className='card-container'>
                     { cartState.cart?.map(item=>(
-                        <div className="horizontal-card">
+                        <div className="horizontal-card" key={item._id}>
                             <div className="card-media">
                                 <img className="hc-image"
                                 src={item.img} 
@@ -94,7 +94,7 @@ function Cart() {
             {/* price details */}
             <div className="total-price">
                 <button className='btn coupon' onClick={()=>setCouponModalOpen(true)}>
-                <i class="fas fa-tag"></i> Apply coupon
+                <i className="fas fa-tag"></i> Apply coupon
                 </button>
                 <Coupon finalPrice={priceAfterCouponApplied}/>
                 <div className="price-details">
@@ -103,7 +103,7 @@ function Cart() {
                     <div className="outer-div">
                         {cartState.cart?.length>0 && cartState?.cart?.map(item=>{
                             return(
-                                <div className="details">
+                                <div className="details" key={item._id}>
                                     <h1 className="text-md">{item.brandname}</h1>
                                     <small className='text-sm'>x{item.qty}</small>
                                     <p className="text-md">₹{item.price}</p>
