@@ -12,7 +12,7 @@ const cartReducer = (state,action)=>{
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
-                 cart:state.cart?.filter(item=>item.id !== action.payload.id),
+                 cart:state.cart?.filter(item=>item._id !== action.payload._id),
                  totalItems: state.totalItems - 1,
                  totalPrice:state.totalPrice - parseInt(action.payload.price,10)
                 }
