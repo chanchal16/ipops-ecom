@@ -11,7 +11,7 @@ export const products = [
     brandname: "Vincent Chase",
     description:'Blue Transparent Full Rim Round Eyeglasses',
     categoryName: "eyeglasses",
-    price: "799",
+    price: 799,
     img:'https://cdn.eyemyeye.com/shared/images/products/E20C4254/E20C4254-1-hd.jpg',
     rating:2.8
   },
@@ -20,7 +20,7 @@ export const products = [
     brandname: "Vistazo",
     description:'Black Full Rim Round Eyeglasses',
     categoryName: "eyeglasses",
-    price: "999",
+    price: 999,
     img:'https://cdn.eyemyeye.com/shared/images/products/E20A3743/E20A3743-1-hd.jpg',
     rating:2.7
   },
@@ -29,7 +29,7 @@ export const products = [
     brandname: "Vistazo",
     description:'Blue Tinted Aviator Sunglasses',
     categoryName: "sunglasses",
-    price: "1299",
+    price: 1299,
     img:'https://cdn.eyemyeye.com/shared/images/products/S20A2407/S20A2407-1-hd.jpg',
     rating:4.2
   },
@@ -38,7 +38,7 @@ export const products = [
     brandname:'Nerdlane',
     description:'Gunmetal Full Rim Aviator Computer glasses',
     categoryName:'computerglasses',
-    price:'899',
+    price:899,
     img:'https://cdn.eyemyeye.com/shared/images/products/E20A4096/E20A4096-1-hd.jpg',
     rating:4.0
   },
