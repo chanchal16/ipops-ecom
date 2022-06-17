@@ -3,7 +3,6 @@ import { Link,useNavigate} from "react-router-dom";
 import {useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 import { addToWishlist,removeFromWishlist,addToCart } from '../services';
 import { ItemExists } from '../Utils/itemExists';
-import { toast } from "react-toastify";
 
 function ProductCard({product}) { 
     const{token,user} = useAuth();
@@ -22,13 +21,11 @@ function ProductCard({product}) {
         if(!isWishlisted){
             if(user){
             addToWishlist(token,wishlistDispatch,product)
-            toast.success("Added to wishlist");
             }else{
                 navigate('/login')
             }
         }else{
             removeFromWishlist(token,wishlistDispatch,product._id)
-            toast.success('Item removed from wishlist')
         }
         setIsWishlisted(!isWishlisted)
     }
