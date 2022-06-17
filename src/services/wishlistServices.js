@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { toast } from "react-toastify";
 // add to wishlist
 // @params - token stored in localstorage
 // @params - dispatch method from reducer
@@ -13,9 +13,12 @@ const addToWishlist = async (token,wishlistDispatch,product)=>{
         }},)
         if(status === 201) {
             wishlistDispatch({type:'ADD_TO_WISHLIST',payload:product})
-            console.log('res from prodcard',wishlist);
+            toast.success("Added to wishlist");
             }
-        }catch(err) { console.log(err)};
+        }catch(err) { 
+            console.log('cannot add item',err)
+            toast.error('Cannot add item to wishlist')
+        };
     }          
 }
 
@@ -23,16 +26,19 @@ const addToWishlist = async (token,wishlistDispatch,product)=>{
  // @params - token stored in localstorage
 // @params - dispatch method from reducer
 // @params - product to be removed from wishlist
- const removeFromWishlist = async(token,wishlistDispatch,productId)=>{
+ const removeFromWishlist = async(token,wishlistDispatch,product)=>{
     try{
-        const{data:{wishlist}}= await axios.delete("/api/user/wishlist/:productId",
+        const{data:{wishlist}}= await axios.delete(`/api/user/wishlist/${product._id}`,
         {headers:{
             authorization: token
         }}
         );
-        wishlistDispatch({type:'REMOVE_FROM_WISHLIST',payload:productId})
-        console.log('delete wishlist from server',wishlist)
+        wishlistDispatch({type:'REMOVE_FROM_WISHLIST',payload:product});
+        toast.success('Item removed from wishlist')
     }
-    catch(err){console.log('error occured while removing item',err)}
+    catch(err){
+        toast.error('Cannot remove item')
+        console.log('error occured while removing item',err)
+    }
 }
 export {addToWishlist,removeFromWishlist}
