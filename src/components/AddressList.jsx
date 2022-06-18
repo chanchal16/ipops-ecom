@@ -9,7 +9,7 @@ export function AddressList() {
   return (
     <div>
         <button className='btn new-btn' onClick={()=>setIsModalOpen(true)}>
-            <i class="fas fa-plus"></i> add new address
+            <i className="fas fa-plus"></i> add new address
         </button>
         {addressList.length >0 ?
         (<div className='addresses'>
