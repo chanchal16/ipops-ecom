@@ -189,6 +189,7 @@
     align-items: center;
     gap: 10px;
     padding: 3rem;
+    margin-top: 5rem;
 }
 .empty-cart img{
     width: 250px;
