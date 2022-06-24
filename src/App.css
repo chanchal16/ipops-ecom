@@ -27,6 +27,7 @@ main{
 }
 .main-container{
   display: flex;
+  margin-top: 4.5rem;
 }
 /* accent btn */
 .accent-btn{
@@ -146,6 +147,21 @@ main{
 .page img{
   width: 300px;
   
+}
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px transparent;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #d0e8ff;
+  cursor: pointer;
 }
 /* spinner */
 .spinner-div{
