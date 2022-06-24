@@ -1,4 +1,8 @@
 .navbars{
+    width: 100%;
+    position: fixed;
+    background-color: var(--secondary);
+    z-index: 1;
     background-color: var(--secondary);
 }
 .brand-name,.icon-links,.acount{
@@ -12,6 +16,9 @@
 }
 .menu-icon{
     padding: 0;
+}
+ul{
+    margin: 0 1rem;
 }
 .list-items{
     vertical-align: middle;
@@ -33,6 +40,7 @@
 .login{
     background-color: var(--primary);
     color: var(--secondary);
+    margin:0 0.8rem;
 }
 .login:hover{
     background-color: var(--primary-dark);
