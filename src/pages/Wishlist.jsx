@@ -9,7 +9,7 @@ function Wishlist() {
     const{token} = useAuth();
     const {wishlistState:{wishlist},wishlistDispatch} = useWishlist()
     const{cartState,cartDispatch} = useCart();
-
+console.log('wishl',wishlist)
     const cartHandler =async (item)=>{
         if(!ItemExists(cartState.cart,item._id)){
             item.qty = 1;
@@ -17,61 +17,61 @@ function Wishlist() {
         } 
     }
   return (
+    <>
+    {wishlist?.length > 0 ? (
     <div className='wishlist-container'>
-        {
-            wishlist?.length > 0 ?
-            ( wishlist?.map(wishlistItem=>(
-                <div class="card" key={wishlistItem._id}>
-                    <div class="card-media">
-                        <img class="vc-image" 
+        {          
+            wishlist?.map(wishlistItem=>(
+                <div className="card" key={wishlistItem._id}>
+                    <div className="card-media">
+                        <img className="vc-image" 
                         src={wishlistItem.img} 
                         alt="specs" loading="lazy" />
-                        <span class="fav close " onClick={()=> removeFromWishlist(token,wishlistDispatch,wishlistItem)}>
+                        <span className="fav close " onClick={()=> removeFromWishlist(token,wishlistDispatch,wishlistItem)}>
                             <i className="fas fa-heart fa-lg"></i>
                         </span>
                     </div>
-                    <div class="card-content">
-                        <div class="content-title">
+                    <div className="card-content">
+                        <div className="content-title">
                             <h4>{wishlistItem.brandname}</h4>
-                            <div class="badge-rating">
-                                <span class="text-xs">{wishlistItem.rating}</span>
-                                <span class="badge-star"><i class="fas fa-star fa-xs"></i></span>
+                            <div className="badge-rating">
+                                <span className="text-xs">{wishlistItem.rating}</span>
+                                <span className="badge-star"><i className="fas fa-star fa-xs"></i></span>
                             </div>  
                         </div>
-                        <div class="desc">
-                            <p class="desc-title">{wishlistItem.categoryName}</p>
+                        <div className="desc">
+                            <p className="desc-title">{wishlistItem.categoryName}</p>
                             <p>
                                 <strong>₹{wishlistItem.price} </strong> 
                             </p>
                         </div>
-                        <div class="action-btns">
+                        <div className="action-btns">
                         {ItemExists(cartState.cart,wishlistItem.id) ?
                             <Link to='/cart'>
-                                <button class="btn go-to-cart" >
-                                    <i class="fas fa-shopping-cart"></i> Go to cart
+                                <button className="btn go-to-cart" >
+                                    <i className="fas fa-shopping-cart"></i> Go to cart
                                 </button>
                             </Link>                  
                             : 
-                            <button class="btn" onClick={()=>cartHandler(wishlistItem)}>
-                                <i class="fas fa-shopping-cart"></i> Add to cart
+                            <button className="btn" onClick={()=>cartHandler(wishlistItem)}>
+                                <i className="fas fa-shopping-cart"></i> Add to cart
                             </button>
                         }
                         </div>
                     </div>
                 </div>
-            ))
-            ):(
-                <div className='empty-cart'>
-                    <img src={empty} alt='cart' />
-                    <span className='text-sm gray-text'>Looks like your wishlist is empty</span>
-                    <Link to='/products'>
-                        <button className='button btn-primary'>View Products</button>
-                    </Link>
-                </div>
-            )
-        }
-        
-    </div>
+            ))  
+        }       
+    </div>):(
+        <div className='empty-cart'>
+            <img src={empty} alt='cart' />
+            <span className='text-sm gray-text'>Looks like your wishlist is empty</span>
+            <Link to='/products'>
+                <button className='button btn-primary'>View Products</button>
+            </Link>
+        </div>
+    )}
+    </>
   )
 }
 export{Wishlist}
