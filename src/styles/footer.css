@@ -1,6 +1,10 @@
 .footer{
+    z-index: 1;
     background-color: var(--secondary);
     padding: 0.5rem;
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
 }
 .socials,.footer-header{
     display: flex;
