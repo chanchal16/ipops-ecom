@@ -1,14 +1,22 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { useFilter } from '../contexts/filterContext'
 
 function Sidebar() {
     const {filterState, filterDispatch} = useFilter()
     const{category,sortBy,price} = filterState
+    const[open,setOpen] = useState(false)
+
+    const handleFilterMenu=()=>{
+        setOpen(!open)
+    }
     
   return (
-    <div>
-         <aside>
-            <div className="sidebar">
+    <div className={`${open && 'side-div'}`}>
+        <span className='filter-icon' onClick={handleFilterMenu}>
+            <i className="fas fa-filter"></i>
+        </span>
+         <aside className={`${!open && 'hide'}`}>       
+            <div className={`sidebar `}>               
                 <span className="h6 sidebar-heading">Filters</span>
                 <a className='button link' onClick={(e)=>filterDispatch({type:'CLEAR'})}>CLEAR</a>
                 <div className="filters">
