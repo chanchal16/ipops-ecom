@@ -1,5 +1,6 @@
 .cart-section{
     background-color: var(--default-bg);
+    padding-top: 3rem; 
 }
 .cart-container{
     display: flex;
@@ -47,7 +48,11 @@
     width: 10rem;
     object-fit: contain;
 }
-.card-title,.card-sub-title{
+.card-title{
+    margin: 0 1rem;
+    font-size: 1.2rem;
+}
+.card-sub-title{
     margin: 0 1rem;
 }
 .btn.order{
@@ -66,15 +71,15 @@
 }
 .total-price{
     flex-grow: 1;
-    padding: 3rem 1rem;
+    padding: 3rem 0;
 }
 .btn-link{
     margin: 1rem;
-    color: var(--primary);
+    color: var(--primary-dark);
     cursor: pointer;
 }
 .btn-link:hover{
-    color: var(--primary-dark);
+    color: #1886fd;
 }
 .link-secondary:hover{
     color: #5a5e5f;
@@ -141,7 +146,7 @@
 /* coupon */
 .btn.coupon{
     padding: 10px 15px;
-    width: 83%;
+    max-width: 400px;
     margin: auto 2rem;
     background-color: var(--secondary);
     color:white;
