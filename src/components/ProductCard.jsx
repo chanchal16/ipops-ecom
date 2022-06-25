@@ -25,7 +25,7 @@ function ProductCard({product}) {
                 navigate('/login')
             }
         }else{
-            removeFromWishlist(token,wishlistDispatch,product._id)
+            removeFromWishlist(token,wishlistDispatch,product)
         }
         setIsWishlisted(!isWishlisted)
     }
