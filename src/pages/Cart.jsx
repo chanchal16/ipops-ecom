@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import { useAuth,useCart,useWishlist,useAddress} from '../contexts/MainProvider'
 import { removeFromCart,addToWishlist } from '../services';
 import {decreaseQtyHandler,couponDiscountHandler} from '../Utils/cartUtil';
@@ -11,7 +11,7 @@ function Cart() {
     const{token} = useAuth();
     const{cartState,cartDispatch,setCouponModalOpen} = useCart();
     const {totalPrice,selectedCoupon} = cartState
-    const {wishlistDispatch} = useWishlist();
+    const {wishlistDispatch,wishlistState} = useWishlist();
     const {addressState,setIsModalOpen} = useAddress();
     const{addressList,selectedAddress} = addressState;
 
@@ -20,12 +20,14 @@ function Cart() {
 
     // price after cuopon applied
     const priceAfterCouponApplied =  couponDiscountHandler(selectedCoupon,totalPrice)
-
+    
+    // move product to wishlist
     const moveToWishlist = (item)=>{
         addToWishlist(token,wishlistDispatch,item)
         removeFromCart(token,cartDispatch,item)
-        cartDispatch({type:'RESET_COUPON'})
+        cartDispatch({type:'RESET_COUPON'})       
     }
+    // remove product from cart
     const removeProduct = (item)=>{
         removeFromCart(token,cartDispatch,item)
         cartDispatch({type:'RESET_COUPON'})
@@ -63,13 +65,18 @@ function Cart() {
                                 alt="specs" />                
                             </div>
                             <div className="content">
-                                <h3 className="card-title">{item.name}</h3>
+                                <h3 className="card-title">{item.brandname}</h3>
                                 <p className="gray card-sub-title">{item.categoryName.toUpperCase()}</p>
                                 <p className="gray card-sub-title"><strong>₹{item.price}</strong></p>
-                                <div className="btns">                            
-                                    <a className=" btn-link" onClick={()=>moveToWishlist(item)}>
+                                <div className="btns"> 
+                                {wishlistState.wishlist.find(prod=>prod._id === item._id)?(
+                                    <a className=" btn-link">Wishlisted</a>
+                                ):(
+                                    <a className=" btn-link"  onClick={()=>moveToWishlist(item)}>
                                         move to wishlist
-                                    </a>   
+                                    </a>
+                                )}                           
+                                       
                                     <a className="link-secondary" onClick={()=>removeProduct(item)}>Remove</a>
                                 </div>
                                 <div className="count-div">
