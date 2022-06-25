@@ -9,7 +9,7 @@ function Wishlist() {
     const{token} = useAuth();
     const {wishlistState:{wishlist},wishlistDispatch} = useWishlist()
     const{cartState,cartDispatch} = useCart();
-console.log('wishl',wishlist)
+
     const cartHandler =async (item)=>{
         if(!ItemExists(cartState.cart,item._id)){
             item.qty = 1;
