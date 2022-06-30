@@ -83,7 +83,6 @@ export const removeAddressHandler = function (schema, request) {
     }
     let userAddress = schema.users.findBy({ _id: userId }).address;
     const addressId = request.params.addressId;
-    console.log('add-id',addressId)
     userAddress = userAddress.filter((item) => item._id !== addressId);
     this.db.users.update({ _id: userId }, { address: userAddress });
     return new Response(200, {}, { address: userAddress });
@@ -106,7 +105,6 @@ export const removeAddressHandler = function (schema, request) {
 
 export const updateAddressHandler = function (schema, request) {
   const addressId = request.params.addressId;
-  console.log('addid',addressId)
   const userId = requiresAuth.call(this, request);
   try {
     if (!userId) {
@@ -133,7 +131,6 @@ export const updateAddressHandler = function (schema, request) {
           address.updatedAt = formatDate();
         }
       });
-      console.log('update add from server',userAddress)
     this.db.users.update({ _id: userId }, { address: userAddress });
     return new Response(200, {}, { address: userAddress });
   } catch (error) {
