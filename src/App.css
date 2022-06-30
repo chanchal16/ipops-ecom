@@ -165,7 +165,7 @@ main{
 }
 /* spinner */
 .spinner-div{
-  margin: auto;
+  margin: auto 90%;
   padding: 5rem;
 }
 .spinner{
