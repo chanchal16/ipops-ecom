@@ -7,7 +7,7 @@ export function AddressList() {
     const{addressState,setIsModalOpen} = useAddress();
     const{addressList} = addressState
   return (
-    <div>
+    <div style={{padding:'4rem 1rem'}}>
         <button className='btn new-btn' onClick={()=>setIsModalOpen(true)}>
             <i className="fas fa-plus"></i> add new address
         </button>
