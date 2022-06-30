@@ -18,6 +18,7 @@ https://user-images.githubusercontent.com/56486295/162398094-f088d3b5-2c13-4de6-
 ## New Updates
 - Address management
 - Payment integration
+- Coupons
 
 ## Tech Stack
 - React
