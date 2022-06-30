@@ -17,20 +17,22 @@ function Navbar() {
         navigate("/");
       };
   return (
-    <div>
         <header className="navbars">
             <Link to=''  className="menu-icon">
                 <img src={specs} width="40px" height="40px" alt="logo" />
             </Link>
-            <Link to='/'  className="brand-name h6">
+            <Link to='/' className="brand-name h6">
                 ipops
             </Link>
             <nav>
                 <ul>
                     <li className="list-items">
+                        <Link to='/products' className='icon-links'><i className="fas fa-shopping-bag fa-lg"></i></Link>
+                    </li>
+                    <li className="list-items">
                         <div className='badge-icon'>
                             <Link to='/wishlist' className='icon-links'><i className="fas fa-heart fa-lg"></i></Link>
-                           {wishlist.length>0? <div className='badge dotbadge'></div> : null}
+                           {wishlist.length>0? <div className='badge numbadge'><small>{wishlist.length}</small></div> : null}
                         </div>
                     </li>
                     <li className="list-items">
@@ -57,7 +59,6 @@ function Navbar() {
                 </ul>
             </nav>
         </header>
-    </div>
   )
 }
 export {Navbar}
