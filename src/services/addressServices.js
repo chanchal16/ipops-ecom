@@ -32,7 +32,7 @@ const removeAddress = async(token,addressDispatch,addressId)=>{
             authorization: token
         }}
         );
-        addressDispatch({type:'REMOVE_ADDRESS',payload:address})
+        addressDispatch({type:'REMOVE_ADDRESS',payload:addressId})
     }
     catch(err){console.error(err)}
 }

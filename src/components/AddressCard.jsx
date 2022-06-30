@@ -14,8 +14,8 @@ export function AddressCard({address}) {
         setIsModalOpen(true);
     }
 
-    const removeAddressHandler = async(addressId)=>{
-        await removeAddress(token,addressDispatch,addressId)
+    const removeAddressHandler = async(address)=>{
+        await removeAddress(token,addressDispatch,address)
     }
 
     const selectAddressHandler = (addressId) => {
@@ -40,7 +40,7 @@ export function AddressCard({address}) {
                 <button className='button accent-btn' onClick={()=>editAddressHandler(address)}>
                     Edit
                 </button>
-                <button className='button primary-btn' onClick={()=>removeAddressHandler(address.addressId)}>
+                <button className='button primary-btn' onClick={()=>removeAddressHandler(address)}>
                     remove
                 </button>
             </div>

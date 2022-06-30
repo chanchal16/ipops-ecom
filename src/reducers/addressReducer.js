@@ -5,7 +5,7 @@ const addressReducer = (state,{type,payload})=>{
         case 'ADD_ADDRESS':
             return {...state,addressList:[...state.addressList,payload]};
         case 'REMOVE_ADDRESS':
-            return {...state,addressList:state.addressList?.filter(item=>item.addressId === payload)};
+            return {...state,addressList:state.addressList?.filter(item=>item.addressId !== payload.addressId)};
         case 'UPDATE_ADDRESS':           
             const exists =state.addressList.filter(address=>(address.addressId === payload.addressId))
             return {
