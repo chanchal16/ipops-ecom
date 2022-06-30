@@ -1,5 +1,4 @@
 const filterReducer = (state, action) => {
-    console.log("action", action);
     switch (action.type) {
       case 'GET_ALL_PRODUCTS':
         return {...state,products:action.payload};
