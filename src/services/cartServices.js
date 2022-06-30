@@ -27,7 +27,7 @@ const addToCart = async (token,cartDispatch,product)=>{
 // @params - product to be removed from cart
 const removeFromCart = async(token,cartDispatch,productId)=>{
     try{
-        const{data:{cart}}= await axios.delete("/api/user/cart/:productId",
+        const{data:{cart}}= await axios.delete(`/api/user/cart/${productId}`,
         {headers:{
             authorization: token
         }}
