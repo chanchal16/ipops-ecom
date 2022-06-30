@@ -17,9 +17,6 @@
 .menu-icon{
     padding: 0;
 }
-ul{
-    margin: 0 1rem;
-}
 .list-items{
     vertical-align: middle;
     margin:0 0.8rem;
@@ -28,11 +25,6 @@ ul{
 .badge-icon{
     margin: 0;
 }
-.dotbadge{
-    bottom: 0.9rem;
-    left: 1.2rem;
-    background-color: var(--danger);
-}
 .numbadge{
     bottom: 0.8rem;
 }
@@ -40,7 +32,8 @@ ul{
 .login{
     background-color: var(--primary);
     color: var(--secondary);
-    margin:0 0.8rem;
+    margin-left: 0.5rem; 
+    margin-right: 0.7rem;
 }
 .login:hover{
     background-color: var(--primary-dark);
