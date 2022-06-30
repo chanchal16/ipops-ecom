@@ -58,25 +58,25 @@ export function AddressForm() {
         <form className='address-form ' onSubmit={handleForm}>
             <h3 className='h5 center-text gray2-text'>Add/Edit Address</h3>
             <div className='input-grp d-flex'>
-                <input type='text' className="input-field" placeholder='Name'
+                <input type='text' className="input-field" placeholder='Name' required
                  value={form?.name} name='name' onChange={(e)=>onChangeHandler(e,'name')} />
-                <input type='number' className="input-field" placeholder='Mobile no'
+                <input type='number' className="input-field" placeholder='Mobile no' required
                  value={form?.phone} name='phone' onChange={(e)=>onChangeHandler(e,'phone')}/>
             </div>
             <div className='input-grp street'>
-            <input type='text' className="input-field " placeholder='Street'
+            <input type='text' className="input-field " placeholder='Street' required
             name='street' value={form?.street} onChange={(e)=>onChangeHandler(e,'street')}/>
             </div>
             <div className='input-grp d-flex'>          
-                <input type='text' className="input-field" placeholder='City'
+                <input type='text' className="input-field" placeholder='City' required
                 name='city' value={form?.city} onChange={(e)=>onChangeHandler(e,'city')}/>
-                <input type='text' className="input-field" placeholder='State'
+                <input type='text' className="input-field" placeholder='State' required
                 name='state' value={form?.state} onChange={(e)=>onChangeHandler(e,'state')}/>
             </div>
             <div className='input-grp d-flex'> 
-                <input type='text' className="input-field" placeholder='Country'
+                <input type='text' className="input-field" placeholder='Country' required
                 name='country' value={form?.country} onChange={(e)=>onChangeHandler(e,'country')}/>
-                <input type='number' className="input-field" placeholder='Pincode'
+                <input type='number' className="input-field" placeholder='Pincode' required
                 name='pincode' value={form?.pincode} onChange={(e)=>onChangeHandler(e,'pincode')}/>
             </div>
             <div className='form-btns'>
