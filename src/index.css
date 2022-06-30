@@ -13,6 +13,7 @@ code {
 }
 .summary-container{
   padding: 2rem;
+  margin-top: 4rem;
 }
 .summary-container h1{
   color: var(--success);
