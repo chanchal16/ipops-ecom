@@ -34,16 +34,17 @@ function Products() {
             {/* <!---product list----> */}
             <div className='product-list'>
             {
-            filteredProducts.length>0 ? (
+            filteredProducts.length>0 ? (           
                 filteredProducts?.map(product=>(
                     <ProductCard product={product} key={product._id} />
                 ))
             ):( 
                 <>           
                 <Spinner/>
+                 <span className='h5 gray-text'>No products</span>
                 </>
             )
-            }
+            }          
             </div>
         </section>
     </div>
