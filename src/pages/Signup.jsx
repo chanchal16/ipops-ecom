@@ -17,7 +17,7 @@ function Signup() {
         setSignUpForm((form)=>({
             ...form,
         }))
-        navigate('/')
+        // navigate('/')
     }
   return (
     <div>
