@@ -24,7 +24,7 @@
     margin: 1rem auto;
 }
 .street{
-    width: 67%;
+    width: 70%;
     margin: auto;
 }
 /* action btns */
@@ -39,6 +39,10 @@
 }
 .form-btns .primary-btn{
     margin: 0 0.5rem;
+}
+.card-btns{
+    bottom: 8px;
+    position: absolute;
 }
 .card-btns .primary-btn{
     margin: 0 0.5rem;
@@ -75,7 +79,9 @@
 }
 /* address card */
 .address-card{
+    position: relative;
     width: 300px;
+    height: 200px;
     border: 1px solid var(--secondary);
     padding: 1rem;
 }
