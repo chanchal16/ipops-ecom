@@ -47,10 +47,13 @@ main{
   width: 100%;
 }
 .shop{
+  width: 8rem;
+  font-size: 1rem;
+  padding: 10px 15px;
   position: absolute;
-  bottom:7rem;
-  margin-left:45%;
-  margin-right: 45%;
+  top:70%;
+  left:50%;
+  transform:translate(-50%,-50%);
   background-color: var(--accent);
   
 }
@@ -163,10 +166,12 @@ main{
   background-color: #d0e8ff;
   cursor: pointer;
 }
+
 /* spinner */
 .spinner-div{
   margin: auto 90%;
   padding: 5rem;
+  height: 100vh;
 }
 .spinner{
   position: absolute;
@@ -185,7 +190,10 @@ main{
       transform: rotate(360deg);
   }
 }
-
+.nodata{
+  height: 100vh;
+  margin: auto;
+}
 /* media queries */
 @media only screen and (max-width: 600px) {
   .categories{
