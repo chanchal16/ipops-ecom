@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React from 'react'
 import { Link,useNavigate} from "react-router-dom";
 import {useAuth,useWishlist,useCart } from '../contexts/MainProvider';
 import { addToWishlist,removeFromWishlist,addToCart } from '../services';
@@ -9,25 +9,18 @@ function ProductCard({product}) {
     const navigate = useNavigate();
     const {cartState,cartDispatch} = useCart()
     const {wishlistState,wishlistDispatch} = useWishlist()
-    const[isWishlisted,setIsWishlisted] = useState();
-
-    // check for wishlisted items
-    useEffect(() => {
-        setIsWishlisted(ItemExists(wishlistState.wishlist,product._id))   
-    }, [])
     
     // wishlist handler
-    const wishlistHandler = (product)=>{       
-        if(!isWishlisted){
-            if(user){
-            addToWishlist(token,wishlistDispatch,product)
-            }else{
-                navigate('/login')
+    const wishlistHandler = async(product)=>{         
+        if(user){ 
+            if(!ItemExists(wishlistState.wishlist,product._id)){
+                addToWishlist(token,wishlistDispatch,product)
+            } else{
+                removeFromWishlist(token,wishlistDispatch,product)
             }
         }else{
-            removeFromWishlist(token,wishlistDispatch,product)
-        }
-        setIsWishlisted(!isWishlisted)
+            navigate('/login')
+        }      
     }
     
     // cart handler
@@ -49,7 +42,7 @@ function ProductCard({product}) {
                 src={product.img} 
                 alt="specs" loading="lazy" />
                 <span className="fav close " onClick={()=>wishlistHandler(product)}>
-                    {isWishlisted ?<i className="fas fa-heart fa-lg"></i>
+                    {ItemExists(wishlistState.wishlist,product._id) ?<i className="fas fa-heart fa-lg"></i>
                     : <i className="far fa-heart fa-lg"></i>}
                 </span>
             </div>
@@ -66,7 +59,7 @@ function ProductCard({product}) {
                     <p><strong>₹{product.price}</strong></p>
                 </div>
                 <div className="action-btns">
-                {ItemExists(cartState.cart,product.id) ?
+                {ItemExists(cartState.cart,product._id) ?
                     <Link to='/cart'>
                         <button className="btn go-to-cart" >
                             <i className="fas fa-shopping-cart"></i> Go to cart
