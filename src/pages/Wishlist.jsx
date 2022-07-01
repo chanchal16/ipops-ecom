@@ -46,7 +46,7 @@ function Wishlist() {
                             </p>
                         </div>
                         <div className="action-btns">
-                        {ItemExists(cartState.cart,wishlistItem.id) ?
+                        {ItemExists(cartState.cart,wishlistItem._id) ?
                             <Link to='/cart'>
                                 <button className="btn go-to-cart" >
                                     <i className="fas fa-shopping-cart"></i> Go to cart
