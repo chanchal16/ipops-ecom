@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useEffect,useState} from 'react';
 import {Sidebar, ProductCard,Spinner} from '../components';
 import { useFilter } from '../contexts/filterContext';
 import axios from 'axios'
@@ -7,14 +7,17 @@ import { getFilteredByPrice, getFilteredByRatings, getFliteredByCategory, getSor
 function Products() {
     const {filterState, filterDispatch} = useFilter()
     const{products,category,sortBy,range,rating} = filterState
+    const[loading,setLoading] = useState(false)
 
     useEffect(() => {
         (async () => {
             try {
+                setLoading(true)
                await axios.get("/api/products")
                .then((res) => {
                     filterDispatch({type:'GET_ALL_PRODUCTS',payload:res.data.products})
                 })
+                setLoading(false)
             }catch(err) { console.log(err)};
             
           })();
@@ -30,21 +33,22 @@ function Products() {
     <div className="main-container">
         <Sidebar/>
         <section>
-            <h5 className='text-lg total-prod'>Showing {filteredProducts.length} items</h5>
+            <h5 className='gray-text text-lg total-prod'>Products({filteredProducts.length})</h5>
             {/* <!---product list----> */}
             <div className='product-list'>
-            {
-            filteredProducts.length>0 ? (           
-                filteredProducts?.map(product=>(
-                    <ProductCard product={product} key={product._id} />
-                ))
-            ):( 
-                <>           
-                <Spinner/>
-                 <span className='h5 gray-text'>No products</span>
-                </>
-            )
-            }          
+                {
+                    loading ? (
+                        <Spinner/>
+                    ):filteredProducts.length>0 ?(
+                        filteredProducts?.map(product=>(
+                            <ProductCard product={product} key={product._id} />
+                        ))
+                    ):(
+                        <div className='nodata'>
+                        <span className='h5 gray-text text-center'>No products available</span>
+                        </div>
+                    )
+                }
             </div>
         </section>
     </div>
